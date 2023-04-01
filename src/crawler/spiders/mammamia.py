@@ -18,7 +18,11 @@ class MammaMia(AbstractCrawler):
                 'https://www.mammamia.ro/menu'
             ]
     name = 'MammaMia'
-   
+
+    """
+        The whole menu is displayed in a single page so link_selectors
+        for the next page are not needed.
+    """
     link_selectors = {}
     product_selectors = {"product_name" : ".cart-title::text", "product_description" : ".menufont::text", "product_price" : '.productPrice::text', 'product_images' : 'img::attr(data-src)'}
 
@@ -34,12 +38,12 @@ class MammaMia(AbstractCrawler):
      
     def setup(self):
         """
-            Make a selenium browser instance and set it to press the button for delivery
+            Make a selenium browser instance and set it to press the button for home delivery
         """
-        self.driver = Driver().get_instance()
-        self.driver.get(self.start_urls[0])
-        lirare_btn = self.driver.find_element(By.CLASS_NAME, 'btn')
-        lirare_btn.click()
+        self.driver = Driver().get_instance() # Get the Singleton Driver instance
+        self.driver.get(self.start_urls[0])   # Go to the page
+        lirare_btn = self.driver.find_element(By.CLASS_NAME, 'btn') # Get the home delivery button
+        lirare_btn.click() # Press it
 
     def parse(self, response : HtmlResponse):
         for product in response.css('.productCard'):
