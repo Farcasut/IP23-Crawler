@@ -2,7 +2,7 @@ from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
 
 from crawler.pipelines import CrawlerPipeline
-from crawler.spiders.test import TestSpyder
+from crawler.spiders.PizzaSmile import PizzaSmile
 from crawler.pipelines import items
 
 def main():
@@ -10,7 +10,7 @@ def main():
     print(settings)
     process = CrawlerProcess(settings)
 
-    process.crawl("MammaMia")
+    process.crawl("PizzaSmile")
     process.start()
     
     print(items)
