@@ -18,6 +18,6 @@ class CrawlerPipeline:
     def process_item(self, item, spider):
         global items
         new_item = ItemAdapter(item)
-        new_item['product_price'] = float(new_item['product_price'][0].split()[0])
+        new_item['price'] = float(new_item['price'][0].split()[0])
         items.append(new_item)
         return json.dumps(dict(new_item))

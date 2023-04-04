@@ -2,7 +2,6 @@ from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
 
 from crawler.pipelines import CrawlerPipeline
-from crawler.spiders.test import TestSpyder
 from crawler.pipelines import items
 
 def main():
