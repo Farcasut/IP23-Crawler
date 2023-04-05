@@ -1,26 +1,34 @@
 import scrapy
-from crawler.spiders.abstractcrawler import  AbstractCrawler
+from itemloaders import ItemLoader
 
+from crawler.items import Product
 
-class PizzaSmile(AbstractCrawler):
-
-
+class PizzaSmile(scrapy.Spider):
     name = 'PizzaSmile'
     start_urls = [
         'https://smilepizzadelivery.ro/delivery/'
     ]
-    link_selectors={'.next::attr(href)'}
-    product_selectors = {"product_name" : ".woocommerce-loop-product__link::attr(href)",
-                         "product_description" : "strong::text",
-                         "product_price" : '.entry-summary .amount::text',
-                         'product_images' : '.wp-post-image::attr(data-.src)'
-                         }
-    default_product_values = {"restaurant_name" : "PizzaSmile", "source" : "site", "product_category" : "generic_category"}
-
 
     def parse(self, response):
         product_pages = response.css('.woocommerce-loop-product__link::attr(href)').extract()
+        next_page = response.css('.next::attr(href)').get()
+
         for product_page in product_pages:
-            yield self.helper_get_product(response=response, selector=product_page)
+            yield response.follow(product_page, callback=self.scrapeItem)
+
+        if next_page is not None:
+            print("\n\n\n\n\n\n" + next_page + "n\n\n\n\n\n\n")
+            yield response.follow(next_page, self.parse)
+
+    def scrapeItem(self, response):
+        l = ItemLoader(item=Product(), selector=response)
+        l.add_value('restaurant_name', PizzaSmile.name)
+        l.add_css('name', '.edgtf-single-product-title::text')
+        l.add_value('source', 'site')
+        l.add_css('price', '.entry-summary .amount::text')
+        l.add_css('images', '.wp-post-image::attr(src)')
+        l.add_css('category', '.edgtf-woo-cat-items a::text')
+        l.add_css('description', 'strong::text')
+        yield l.load_item()
 
 
