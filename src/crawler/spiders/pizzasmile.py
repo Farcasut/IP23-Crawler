@@ -1,7 +1,10 @@
 import scrapy
 from itemloaders import ItemLoader
 
+
 from crawler.items import Product
+from crawler.spiders import utils
+
 
 class PizzaSmile(scrapy.Spider):
     name = 'PizzaSmile'
@@ -17,7 +20,7 @@ class PizzaSmile(scrapy.Spider):
             yield response.follow(product_page, callback=self.scrapeItem)
 
         if next_page is not None:
-            print("\n\n\n\n\n\n" + next_page + "n\n\n\n\n\n\n")
+            #print("\n\n\n\n\n\n" + next_page + "n\n\n\n\n\n\n")
             yield response.follow(next_page, self.parse)
 
     def scrapeItem(self, response):
@@ -25,10 +28,10 @@ class PizzaSmile(scrapy.Spider):
         l.add_value('restaurant_name', PizzaSmile.name)
         l.add_css('name', '.edgtf-single-product-title::text')
         l.add_value('source', 'site')
-        l.add_css('price', '.entry-summary .amount::text')
+        l.add_value('price', utils.get_rid_of_special_spaces(response.css('.entry-summary .amount::text').get())),
         l.add_css('images', '.wp-post-image::attr(src)')
         l.add_css('category', '.edgtf-woo-cat-items a::text')
-        l.add_css('description', 'strong::text')
+        l.add_value('description', utils.get_rid_of_special_spaces(response.css('strong::text').get()))
         yield l.load_item()
 
 
