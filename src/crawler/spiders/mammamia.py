@@ -24,7 +24,7 @@ class MammaMia(AbstractCrawler):
         for the next page are not needed.
     """
     link_selectors = {}
-    product_selectors = {"name" : ".cart-title::text", "description" : ".menufont::text", "price" : '.productPrice::text', 'images' : 'img::attr(data-src)'}
+    product_selectors = {"name" : ".card-title::text", "description" : ".menufont::text", "price" : '.productPrice::text', 'images' : 'img::attr(data-src)'}
 
     default_product_values = {"restaurant_name" : "MammaMia", "source" : "site", "category" : "generic_category"}
 
