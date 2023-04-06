@@ -20,7 +20,6 @@ class PizzaSmile(scrapy.Spider):
             yield response.follow(product_page, callback=self.scrapeItem)
 
         if next_page is not None:
-            #print("\n\n\n\n\n\n" + next_page + "n\n\n\n\n\n\n")
             yield response.follow(next_page, self.parse)
 
     def scrapeItem(self, response):

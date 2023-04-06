@@ -8,7 +8,7 @@ from selenium.webdriver.firefox.webdriver import WebDriver
 from selenium.webdriver.firefox.options import Options
 
 from crawler.items import Product
-#from scrapy_selenium import Driver
+from scrapy_selenium import Driver
 from scrapy_selenium import SeleniumRequest
 from crawler.spiders.abstractcrawler import AbstractCrawler
 
