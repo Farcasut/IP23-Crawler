@@ -13,6 +13,7 @@ def main():
     process.crawl('CuptorulMoldovencei')
     process.crawl('Tazz')
     process.crawl('SushiMaster')
+    process.crawl('FireRibs')
     process.start()
     print(items)
 
