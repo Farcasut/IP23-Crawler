@@ -11,6 +11,7 @@ def main():
     process.crawl("MammaMia")
     process.crawl("PizzaSmile")
     process.crawl('CuptorulMoldovencei')
+    process.crawl('Tazz')
     process.start()
     print(items)
 

@@ -3,7 +3,7 @@ from itemloaders import ItemLoader
 
 
 from crawler.items import Product
-from crawler.spiders import utils
+from crawler import utils
 
 
 class PizzaSmile(scrapy.Spider):
