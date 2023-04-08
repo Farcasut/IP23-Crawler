@@ -1,7 +1,7 @@
 import scrapy
 from itemloaders import ItemLoader
 
-from crawler.spiders import utils
+from crawler import utils
 from ..items import Product
 
 

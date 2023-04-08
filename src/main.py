@@ -8,9 +8,10 @@ def main():
     settings = get_project_settings()
     print(settings)
     process = CrawlerProcess(settings)
-    process.crawl("MammaMia")
-    process.crawl("PizzaSmile")
-    process.crawl('CuptorulMoldovencei')
+    #process.crawl("MammaMia")
+    #process.crawl("PizzaSmile")
+    #process.crawl('CuptorulMoldovencei')
+    process.crawl('Tazz')
     process.start()
     print(items)
 
