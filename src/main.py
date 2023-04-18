@@ -14,6 +14,7 @@ def main():
     process.crawl('Tazz')
     process.crawl('SushiMaster')
     process.crawl('FireRibs')
+    process.crawl('Veranda')
     process.start()
     print(items)
 
