@@ -1,6 +1,8 @@
 import scrapy
 from scrapy.loader import ItemLoader
+
 from ..items import Product
+
 
 class Veranda(scrapy.Spider):
     name = 'Veranda'
