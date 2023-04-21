@@ -17,6 +17,7 @@ def main():
     process.crawl('Veranda')
     process.crawl('Kurd')
     process.crawl('Odeon')
+    process.crawl('Kraft')
     process.start()
     print(items)
 
