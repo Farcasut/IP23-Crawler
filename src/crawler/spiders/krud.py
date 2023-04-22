@@ -5,8 +5,8 @@ from itemloaders import ItemLoader
 from scrapy import Selector
 from ..items import Product
 
-class kurd(scrapy.Spider):
-    name = 'Kurd'
+class Krud (scrapy.Spider):
+    name = 'Krud'
     start_urls = ['https://www.krud.ro/meniu/']
 
     def parse(self, response):
@@ -17,7 +17,7 @@ class kurd(scrapy.Spider):
     def scrape_item(self, product):
         element = Selector(text=product)
         l = ItemLoader(item=Product(), selector=element)
-        l.add_value('restaurant_name', kurd.name)
+        l.add_value('restaurant_name', Krud.name)
         l.add_css('name', '.zn-priceList-itemTitle::text')
         l.add_value('source', 'site')
         l.add_css('price', '.zn-priceList-itemPrice::text'),
