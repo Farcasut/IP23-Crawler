@@ -6,8 +6,15 @@ import re
 
 def convert_to_float(input_str):
     input_str.replace(',', '.')
-    numberOnly = [float(s) for s in re.findall(r'\d+\.?\d*', input_str)]
-    return numberOnly
+    number = ''
+    for char in input_str:
+        if char.isdigit() or char == '.':
+            number += char
+        elif number:
+            break
+    if number == '':
+        return ''
+    return float(number)
 
 class Product(scrapy.Item):
     restaurant_name = scrapy.Field(output_processor = TakeFirst())

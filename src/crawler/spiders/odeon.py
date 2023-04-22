@@ -5,7 +5,7 @@ from itemloaders import ItemLoader
 from ..items import Product
 from crawler.utils import get_rid_of_special_spaces
 
-class odeon(scrapy.Spider):
+class Odeon(scrapy.Spider):
     name = 'Odeon'
     start_urls = ['https://www.restaurantodeon.ro/magazin/']
 
@@ -19,7 +19,7 @@ class odeon(scrapy.Spider):
             
     def scrape_item(self, response):
         l = ItemLoader(item=Product(), selector=response)
-        l.add_value('restaurant_name',odeon.name)
+        l.add_value('restaurant_name', Odeon.name)
         l.add_css('name', '#content .title::text')
         l.add_value('source', 'site')
         l.add_css('price', '#content .amount::text'),

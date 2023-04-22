@@ -28,4 +28,4 @@ class Bavaria(scrapy.Spider):
         l.add_css('images', '.gdl-image a::attr(href)')
         l.add_css('category', ".food-menu-list-title::text")
         l.add_css('description', '.food-list-excerpt::text')
-        return l.load_item() 
+        return l.load_item()
