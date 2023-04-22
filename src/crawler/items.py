@@ -1,9 +1,20 @@
 import scrapy
 from itemloaders.processors import Join, MapCompose, TakeFirst
 from scrapy import Field
+import re
+
 
 def convert_to_float(input_str):
-    return float(input_str.replace(',', '.').split(' ')[0])
+    input_str.replace(',', '.')
+    number = ''
+    for char in input_str:
+        if char.isdigit() or char == '.':
+            number += char
+        elif number:
+            break
+    if number == '':
+        return ''
+    return float(number)
 
 class Product(scrapy.Item):
     restaurant_name = scrapy.Field(output_processor = TakeFirst())
