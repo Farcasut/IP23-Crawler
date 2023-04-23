@@ -1,5 +1,12 @@
 from configparser import ConfigParser
 
+#You will need to create a database.ini file which will have:
+#host=
+#user=
+#database =
+#password=
+
+#The paramaters will need to be provided by the devOPS team, you need to ask for it.
 
 #defines a config function to read the data form database.ini - DB info that we connect to
 def config(filename='database.ini', section='postgresql'):
