@@ -5,7 +5,7 @@ from itemloaders import ItemLoader
 from scrapy import Selector
 from ..items import Product
 
-class Krud(scrapy.Spider):
+class Krud (scrapy.Spider):
     name = 'Krud'
     start_urls = ['https://www.krud.ro/meniu/']
 
