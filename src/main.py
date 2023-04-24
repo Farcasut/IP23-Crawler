@@ -17,10 +17,10 @@ def main():
     process.crawl('Veranda')
     process.crawl('Krud')
     process.crawl('Odeon')
+    process.crawl('Bavaria')
     process.start()
     print(items)
 
 
 if __name__ == '__main__':
     main()
-

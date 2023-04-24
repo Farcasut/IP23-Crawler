@@ -3,7 +3,6 @@ from itemloaders import ItemLoader
 
 from crawler.items import Product
 
-
 class SushiMaster(scrapy.Spider):
     name = 'SushiMaster'
     start_urls = [
