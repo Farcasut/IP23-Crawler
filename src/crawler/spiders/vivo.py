@@ -36,7 +36,7 @@ class Vivo(scrapy.Spider):
         if url is not None:
             l.add_value('images',  self.pattern.findall(url)[0])
         else:
-            l.add_value('images', ' ')
+            l.add_value('images', '')
         l.add_value('category', '')
         description = selector.css('.m-item-description::text').get()
         if description is not None:
