@@ -26,7 +26,7 @@ class Veranda(scrapy.Spider):
         l.add_value('category', category)
         l.add_css('name', '.heading-title::text')
         l.add_css('description', '.woocommerce-product-details__short-description p::text')
-        l.add_css('price', 'bdi::text')
+        l.add_value('price', response.css('bdi::text').get())
         l.add_css('images', '.wp-post-image::attr(src)')
 
         yield l.load_item()

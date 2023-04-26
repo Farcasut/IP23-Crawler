@@ -3,8 +3,7 @@ from itemloaders import ItemLoader
 
 from crawler.items import Product
 
-
-class sushimaster(scrapy.Spider):
+class SushiMaster(scrapy.Spider):
     name = 'SushiMaster'
     start_urls = [
         'https://sushimaster.ro/'
@@ -14,7 +13,7 @@ class sushimaster(scrapy.Spider):
         pages_id = response.css('.production-card::attr(data-category-id)').getall()
         category = response.css('h2::text').getall()
         for pair in zip(pages_id, category):
-            yield response.follow(sushimaster.start_urls[0] + 'menu/' + pair[0], callback=self.scrape_page,
+            yield response.follow(SushiMaster.start_urls[0] + 'menu/' + pair[0], callback=self.scrape_page,
                                   cb_kwargs={'category': pair[1]})
 
     def scrape_page(self, response, category):
@@ -25,7 +24,7 @@ class sushimaster(scrapy.Spider):
 
         for i in zip(names, descriptions, prices, images):
             l = ItemLoader(item=Product(), selector=response)
-            l.add_value('restaurant_name', sushimaster.name)
+            l.add_value('restaurant_name', SushiMaster.name)
             l.add_value('source', 'site')
             l.add_value('category', category)
             l.add_value('name', i[0].strip())
