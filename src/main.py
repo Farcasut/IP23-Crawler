@@ -19,6 +19,7 @@ def main():
     process.crawl('Odeon')
     process.crawl('Kraft')
     process.crawl('Bavaria')
+    process.crawl('BerariaVeche')
     process.start()
     print(items)
 
