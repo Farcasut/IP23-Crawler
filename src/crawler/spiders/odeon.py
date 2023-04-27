@@ -19,7 +19,7 @@ class Odeon(scrapy.Spider):
             
     def scrape_item(self, response):
         l = ItemLoader(item=Product(), selector=response)
-        l.add_value('restaurant_name', odeon.name)
+        l.add_value('restaurant_name', Odeon.name)
         l.add_css('name', '#content .title::text')
         l.add_value('source', 'site')
         l.add_css('price', 'meta[property="product:price:amount"]::attr(content)'),
