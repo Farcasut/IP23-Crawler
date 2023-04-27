@@ -20,6 +20,7 @@ def main():
     process.crawl('Kraft')
     process.crawl('Bavaria')
     process.crawl('Vivo')
+    process.crawl('Class')
     process.start()
     print(items)
 
