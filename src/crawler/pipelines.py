@@ -53,6 +53,11 @@ class DownloadImages:
                     'image/webp': '.webp',
                     'image/svg+xml': '.svg',
                 }
+        self.requests_session = requests.Session()
+        self.headers = {
+                    'Connection': 'keep-alive',
+                }
+
 
     def process_item(self, item, spider):
         downloaded_images = []
@@ -69,15 +74,15 @@ class DownloadImages:
         except ValueError:
             return False
 
-    def download_image(self, image) -> str|None:
-        requested = requests.get(image)
+    def download_image(self, image_url) -> str|None:
+        requested = self.requests_session.get(image_url, headers=self.headers) 
 
         image_data = requested.content
         try:
             file_extension = self.mime_to_extension[requested.headers['Content-Type']] 
         except KeyError:
             return None
-        filename = hashlib.sha256(image_data).hexdigest()
+        filename = hashlib.sha256(image_data[:256]).hexdigest()
         full_filename = filename + file_extension
     
         try: 
