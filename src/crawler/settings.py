@@ -50,15 +50,10 @@ ROBOTSTXT_OBEY = False
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-from shutil import which
-
-SELENIUM_DRIVER_NAME = 'firefox'
-SELENIUM_DRIVER_EXECUTABLE_PATH = which('geckodriver')
-SELENIUM_DRIVER_ARGUMENTS=['-headless']  # '--headless' if using chrome instead of firefox
 
 DOWNLOADER_MIDDLEWARES = {
     #"crawler.middlewares.CrawlerDownloaderMiddleware": 543,
-    'scrapy_selenium.SeleniumMiddleware' : 800, 
+    'crawler.middlewares.SeleniumMiddleware': 700,
 }
 
 # Enable or disable extensions
