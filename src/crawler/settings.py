@@ -69,8 +69,12 @@ DOWNLOADER_MIDDLEWARES = {
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
+DOWNLOAD_IMAGES_PATH = 'images'
+
 ITEM_PIPELINES = {
     "crawler.pipelines.CrawlerPipeline": 300,
+    "crawler.pipelines.DownloadImages": 400,
+    "crawler.pipelines.PostgresPipeline": 500,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -98,3 +102,4 @@ ITEM_PIPELINES = {
 REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
+CONCURRENT_REQUESTS = 10
