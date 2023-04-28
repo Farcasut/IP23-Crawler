@@ -11,14 +11,21 @@ import hashlib
 import psycopg2
 import requests
 
+from crawler.utils import get_rid_of_special_spaces
 class CrawlerPipeline:
     def __init__(self):
         pass
 
     def process_item(self, item, spider):
         item['name'] = item['name'].strip()
-        if hasattr(item, 'description') and isinstance(item['description'], str):
+        if item.get('description') is not None:
             item['description'] = item['description'].strip()
+        else:
+            item['description'] = ''
+        if item.get('category') is not None:
+            item['category'] = item['category'].strip()
+        else:
+            item['category'] = ''
         return item
 
 class DownloadImages:
@@ -39,10 +46,12 @@ class DownloadImages:
                     'image/jpeg': '.jpg',
                     'image/jpg': '.jpg',
                     'image/png': '.png',
+                    'image/apng': '.apng',
                     'image/gif': '.gif',
                     'image/bmp': '.bmp',
+                    'image/x-windows-bmp': '.bmp',
                     'image/webp': '.webp',
-                    'text/plain': '.txt',
+                    'image/svg+xml': '.svg',
                 }
 
     def process_item(self, item, spider):
@@ -60,11 +69,14 @@ class DownloadImages:
         except ValueError:
             return False
 
-    def download_image(self, image):
+    def download_image(self, image) -> str|None:
         requested = requests.get(image)
 
         image_data = requested.content
-        file_extension = self.mime_to_extension[requested.headers['Content-Type']] 
+        try:
+            file_extension = self.mime_to_extension[requested.headers['Content-Type']] 
+        except KeyError:
+            return None
         filename = hashlib.sha256(image_data).hexdigest()
         full_filename = filename + file_extension
     
