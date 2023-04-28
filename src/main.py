@@ -24,6 +24,7 @@ def main():
     process.crawl('Cheffa')
     process.crawl('Vivo')
     process.crawl('Class')
+    process.crawl('Glovo')
     process.start()
     print(items)
 
