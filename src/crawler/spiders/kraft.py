@@ -17,7 +17,7 @@ class kraft(scrapy.Spider):
         l = ItemLoader(item=Product(), selector=response)
         l.add_value('restaurant_name', kraft.name)
         l.add_css('name', '#et_prod_title bdi::text')
-        l.add_css('source', 'site')
+        l.add_value('source', 'site')
         l.add_value('price', response.css('.ty-price-num::text').get()),
         l.add_value('images',  response.css('#et-product-page .cm-image::attr(src)').get())
         l.add_value('category', '')
