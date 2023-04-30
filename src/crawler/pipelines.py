@@ -25,6 +25,8 @@ class CrawlerPipeline:
             item['category'] = item['category'].strip()
         else:
             item['category'] = ''
+        if item.get('images') is None:
+            item['images'] = []
         return item
 
 class DownloadImages:
@@ -88,7 +90,8 @@ class DownloadImages:
             with open(self.path+'/'+full_filename, 'wb') as file:
                 file.write(image_data)
         except:
-            print(f"Error while trying file to write in filname {path}/{full_filename}")
+            print(f"Error while trying file to write in filname {self.path}/{full_filename}")
+            return None
 
         return full_filename
 
