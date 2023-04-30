@@ -77,11 +77,3 @@ def get_rid_of_special_spaces_without_strip(element):
         return element.replace(u'\xa0', u' ')
     else:
         return None
-
-def check_existance(element):
-    if element is None:
-        return(' ')
-    else:
-        return element
-
-    

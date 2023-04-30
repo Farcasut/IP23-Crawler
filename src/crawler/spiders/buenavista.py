@@ -22,15 +22,13 @@ class BuenaVista(scrapy.Spider):
     def scrape_item(self, product):
         element = Selector(text=product)
         desc = utils.get_rid_of_special_spaces_without_strip(element.css('.elementor-text-editor.elementor-clearfix p::text').get())
-        desc = utils.check_existance(desc)
+        price = utils.get_rid_of_special_spaces_without_strip(element.css('.menu_price::text').get())
         nume = utils.get_rid_of_special_spaces(element.css('.menu_title h5::text').get())
-        if nume != None :
+        if nume != None and price != None :
             l = ItemLoader(item=Product(), selector=element)
             l.add_value('restaurant_name', BuenaVista.name)
             l.add_value('name', nume)
             l.add_value('source', 'site')
-            l.add_css('price', '.menu_price::text')
-            l.add_value('images', ' ')
-            l.add_value('category', ' ')
+            l.add_value('price', price)
             l.add_value('description', desc)
             return l.load_item()
