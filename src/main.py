@@ -2,6 +2,7 @@ from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
 
 
+
 def main():
     settings = get_project_settings()
     print(settings)
@@ -24,7 +25,9 @@ def main():
     process.crawl('Class')
     process.crawl('Glovo')
     process.crawl('Alila')
+    process.crawl('BuenaVista')
     process.start()
+    
 
 
 if __name__ == '__main__':

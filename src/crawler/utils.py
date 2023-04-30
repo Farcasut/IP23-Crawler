@@ -71,3 +71,17 @@ def create_db_connection():
         print(f"There was an error: {error}")
    
     return db_connection 
+
+def get_rid_of_special_spaces_without_strip(element):
+    if element is not None:
+        return element.replace(u'\xa0', u' ')
+    else:
+        return None
+
+def check_existance(element):
+    if element is None:
+        return(' ')
+    else:
+        return element
+
+    
