@@ -1,8 +1,7 @@
 from scrapy.crawler import CrawlerProcess
 from scrapy.utils.project import get_project_settings
 
-from crawler.pipelines import CrawlerPipeline
-from crawler.pipelines import items
+
 
 def main():
     settings = get_project_settings()
@@ -26,8 +25,12 @@ def main():
     process.crawl('Class')
     process.crawl('Glovo')
     process.crawl('MoaraDeFoc')
+    process.crawl('CarulCuBurgeri')
+    process.crawl('Alila')
+    process.crawl('BuenaVista')
+
     process.start()
-    print(items)
+    
 
 
 if __name__ == '__main__':
