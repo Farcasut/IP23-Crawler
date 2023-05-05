@@ -24,10 +24,14 @@ def main():
     process.crawl('Vivo')
     process.crawl('Class')
     process.crawl('Glovo')
+
+    process.crawl('BlueAcqua')
     process.crawl('MoaraDeFoc')
     process.crawl('CarulCuBurgeri')
     process.crawl('Alila')
     process.crawl('BuenaVista')
+
+
 
     process.start()
     
