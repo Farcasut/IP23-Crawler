@@ -25,7 +25,7 @@ class FireRibs(scrapy.Spider):
 
     def scrape_item(self, response, category):
         l = ItemLoader(item=Product(), selector=response)
-        l.add_value('restaurant_name', FireRibs.name)
+        l.add_value('restaurant_name', 'Fire Ribs')
         l.add_value('source', 'site')
         l.add_value('category', category)
         l.add_value('name', response.css('.entry-title::text').get().strip())

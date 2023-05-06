@@ -11,11 +11,36 @@ import psycopg2
 import requests
 
 from crawler.utils import get_rid_of_special_spaces
+
+restaurants_hashmap = {}
+
 class CrawlerPipeline:
     def __init__(self):
         pass
+    def remove_plurals(self, words):
+        new_words = []
+        for word in words:
+            if word.endswith('es'):
+                new_words.append(word[:-2])
+            elif word.endswith('s'):
+                new_words.append(word[:-1])
+            else:
+                new_words.append(word)
+        return new_words 
+
+    def generate_restaurant_key(self, argument):
+        if 'Tribeca' in argument:
+            return 'tribeca'
+        if 'Bubble Waffle' in argument:
+            return 'bubblewaffle'
+        banned_words = ['restaurant', 'iasi', 'cofetăria', 'cofetaria', 'pizzeria', 'pizzerie', 'pizza', 'and', 'pacurari', 'la', 'vatra', 'delivery', 'nicolina', 'express', 'palas', 'mall', 'iulius', 'pasta', 'bar', 'stefan', 'cel', 'mare', 'costache', 'negri', 'cantemir', 'cu', 'maia', 'quisine', 'cuisine', 'timisoreana', 'bucium', 'egros', 'felicia', 'shopping', 'cafe', 'food', 'feelings', 'friends', 'drink', 'drinks', 'food', 'mexican', 'brunch', 'kiosk', 'pub', 'the', 'raw', 'vegan', 'american', 'by', 'selgros']
+        argument = argument.lower()
+        filtered_words = filter(lambda x: x not in banned_words, argument.split(' '))
+        filtered_words = self.remove_plurals(filtered_words)
+        return ''.join(filter(lambda x: x.isalnum(), filtered_words))
 
     def process_item(self, item, spider):
+        global restaurants_hashmap
         item['name'] = item['name'].strip()
         if item.get('description') is not None:
             item['description'] = item['description'].strip()
@@ -27,6 +52,12 @@ class CrawlerPipeline:
             item['category'] = ''
         if item.get('images') is None:
             item['images'] = []
+        
+        restaurant_key = self.generate_restaurant_key(item['restaurant_name'])
+        if restaurant_key not in restaurants_hashmap:
+            restaurants_hashmap[restaurant_key] = item['restaurant_name']
+        
+        item['restaurant_name'] = restaurants_hashmap[restaurant_key]
         return item
 
 class DownloadImages:
@@ -97,7 +128,8 @@ class DownloadImages:
 
 from crawler.utils import create_db_connection
 class PostgresPipeline:
-    query = "INSERT INTO products(product_id, product_data) VALUES (%s, %s) ON CONFLICT (product_id) DO UPDATE SET product_data=excluded.product_data"
+    query_products = "INSERT INTO products(product_id, product_data) VALUES (%s, %s) ON CONFLICT (product_id) DO UPDATE SET product_data=excluded.product_data"
+    query_restaurants = "INSERT INTO restaurants(restaurant_id, restaurant_data) VALUES (%s, %s) ON CONFLICT DO NOTHING"
 
     def open_spider(self, spider):
         self.connection = create_db_connection() 
@@ -109,9 +141,22 @@ class PostgresPipeline:
 
     def process_item(self, item, spider):
         json_item = json.dumps(dict(item))
-        self.cur.execute(PostgresPipeline.query, (self.generate_hash(item), json_item)) 
-        self.connection.commit()
+        json_restaurant = json.dumps({"restaurant_name": item['restaurant_name']})
+
+        try:
+            self.cur.execute('BEGIN')
+            self.cur.execute(PostgresPipeline.query_restaurants, (self.generate_hash_restaurant(item), json_restaurant)) 
+            self.cur.execute(PostgresPipeline.query_products, (self.generate_hash(item), json_item)) 
+            self.connection.commit()
+        except psycopg2.Error as e:
+            print("Error inserting data: ", e, e.with_traceback)
+
         return item
+    
+    def generate_hash_restaurant(self, item):
+        data = item['restaurant_name']
+        data = str(data).encode('utf-8')
+        return hashlib.sha1(data).hexdigest()
 
     def generate_hash(self, item):
         data = item['restaurant_name']+item['name']+item['source']
