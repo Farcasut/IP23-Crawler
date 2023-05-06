@@ -9,6 +9,7 @@ import json
 import hashlib
 import psycopg2
 import requests
+import boto3
 
 from crawler.utils import get_rid_of_special_spaces
 
@@ -60,20 +61,10 @@ class CrawlerPipeline:
         item['restaurant_name'] = restaurants_hashmap[restaurant_key]
         return item
 
+from crawler.utils import parse_config
 class DownloadImages:
-    
-    @classmethod
-    def from_crawler(cls, crawler):
-        download_settings_path = crawler.settings.get('DOWNLOAD_IMAGES_PATH')
 
-        if download_settings_path is not None:
-            downloader = cls(download_settings_path)
-        else:
-            downloader = cls('images')
-        return downloader
-
-    def __init__(self, path):
-        self.path = path
+    def __init__(self):
         self.mime_to_extension = {
                     'image/jpeg': '.jpg',
                     'image/jpg': '.jpg',
@@ -87,6 +78,12 @@ class DownloadImages:
         self.headers = {
                     'Connection': 'keep-alive',
                 }
+        
+        config_s3 = parse_config('crawler/configs/s3.ini', section='default')
+        session = boto3.Session(**config_s3)
+        s3 = session.resource('s3')
+        bucket_name = 'crawlerphotobucket'
+        self.opened_bucket = s3.Bucket(bucket_name) 
 
 
     def process_item(self, item, spider):
@@ -114,14 +111,14 @@ class DownloadImages:
             file_extension = self.mime_to_extension[requested.headers['Content-Type']] 
         except KeyError:
             return None
+
         filename = hashlib.sha256(image_data).hexdigest()
         full_filename = filename + file_extension
     
         try: 
-            with open(self.path+'/'+full_filename, 'wb') as file:
-                file.write(image_data)
+            self.opened_bucket.put_object(Key=full_filename, Body=image_data)
         except:
-            print(f"Error while trying file to write in filname {self.path}/{full_filename}")
+            print(f"Error while trying file to upload the filename {full_filename}")
             return None
 
         return full_filename

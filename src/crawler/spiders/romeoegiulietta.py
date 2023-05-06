@@ -20,7 +20,6 @@ class RomeoEGiulietta(scrapy.Spider):
     def scrape_page(self, response):
         products = response.css('.food-menu-w2').getall()
         categorie = response.css('.w-divider6 h3 .spr::text').get()
-        print(categorie)
         for product in products:
                 yield self.scrape_item(product,categorie)
 

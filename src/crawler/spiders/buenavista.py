@@ -15,7 +15,6 @@ class BuenaVista(scrapy.Spider):
     def parse(self, response):
         products = response.css(
             '.elementor-column.elementor-col-50 .elementor-column-wrap.elementor-element-populated .elementor-widget-wrap .elementor-element.sc_fly_static.elementor-widget.elementor-widget-text-editor .elementor-widget-container .elementor-text-editor.elementor-clearfix').getall()
-        #print(products)
         for product in products:
             yield self.scrape_item(product)
 

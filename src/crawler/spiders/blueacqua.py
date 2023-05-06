@@ -8,7 +8,6 @@ class BlueAcqua(scrapy.Spider):
     def parse(self, response):
         products =  response.css('#navbar-collapse > div > nav > ul > li:nth-child(2) > ul > li a::attr(href)').getall()
         for products_page in products[:-1]:
-            print(products_page)
             yield response.follow(products_page, callback=self.products_page)
 
 

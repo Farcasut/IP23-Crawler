@@ -14,7 +14,6 @@ class CuptorulMoldovencei(scrapy.Spider):
     def parse(self, response):
         product_pages = response.css(
             '.woocommerce-LoopProduct-link.woocommerce-loop-product__link::attr(href)').getall()
-        print(product_pages)
         for product_page in product_pages:
             yield response.follow(product_page, callback=self.scrape_item)
 
