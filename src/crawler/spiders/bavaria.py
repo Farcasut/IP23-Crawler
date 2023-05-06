@@ -15,7 +15,6 @@ class Bavaria(scrapy.Spider):
     def parse(self, response):
         products = response.css(
             '.food-list-wrapper').getall()
-        #print(products)
         for product in products:
             yield self.scrape_item(product)
 

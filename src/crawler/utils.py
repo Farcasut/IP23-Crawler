@@ -49,16 +49,16 @@ def parse_config(filename='crawler/configs/database.ini', section='postgresql'):
     parser = ConfigParser()
     parser.read(filename)
 
-    database_configuration = {}
+    configuration = {}
 
     if parser.has_section(section):
         parameters = parser.items(section)
         for parameter in parameters:
-            database_configuration[parameter[0]] = parameter[1]
+            configuration[parameter[0]] = parameter[1]
     else:
         raise Exception(f"Section {section} not found in the {filename} file.")
 
-    return database_configuration
+    return configuration
 
 import psycopg2
 def create_db_connection():
