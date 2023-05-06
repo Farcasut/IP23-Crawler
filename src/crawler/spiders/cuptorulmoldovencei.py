@@ -20,7 +20,7 @@ class CuptorulMoldovencei(scrapy.Spider):
 
     def scrape_item(self, response):
         l = ItemLoader(item=Product(), selector=response)
-        l.add_value('restaurant_name', CuptorulMoldovencei.name)
+        l.add_value('restaurant_name', 'Cuptorul Moldovencei')
         l.add_css('name', '.entry-title::text')
         l.add_value('source', 'site')
         l.add_value('price', utils.get_rid_of_special_spaces(

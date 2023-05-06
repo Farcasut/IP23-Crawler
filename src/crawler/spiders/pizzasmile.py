@@ -24,7 +24,7 @@ class PizzaSmile(scrapy.Spider):
 
     def scrape_item(self, response):
         l = ItemLoader(item=Product(), selector=response)
-        l.add_value('restaurant_name', PizzaSmile.name)
+        l.add_value('restaurant_name', 'Smile Pizza')
         l.add_css('name', '.edgtf-single-product-title::text')
         l.add_value('source', 'site')
         l.add_value('price', utils.get_rid_of_special_spaces(response.css('.entry-summary .amount::text').get())),
