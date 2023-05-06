@@ -31,7 +31,7 @@ class RomeoEGiulietta(scrapy.Spider):
         if desc == '.':
              desc = None
         desc = utils.get_rid_of_special_spaces(desc)
-        l.add_value('restaurant_name', RomeoEGiulietta.name)
+        l.add_value('restaurant_name', 'Romeo E Giulietta')
         l.add_value('name', utils.get_rid_of_slashes(element.css('.fm-w2-name::text').get().strip()))
         l.add_value('source', 'site')
         l.add_css('price', '.fm-w2-price::text')
