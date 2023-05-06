@@ -24,7 +24,9 @@ class BuenaVista(scrapy.Spider):
         desc = utils.get_rid_of_special_spaces_without_strip(element.css('.elementor-text-editor.elementor-clearfix p::text').get())
         price = utils.get_rid_of_special_spaces_without_strip(element.css('.menu_price::text').get())
         nume = utils.get_rid_of_special_spaces(element.css('.menu_title h5::text').get())
-        if nume != None and price != None :
+        if price == None:
+            price = "17.0"
+        if nume != None:
             l = ItemLoader(item=Product(), selector=element)
             l.add_value('restaurant_name', 'Buena Vista')
             l.add_value('name', nume)

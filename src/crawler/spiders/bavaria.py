@@ -22,7 +22,7 @@ class Bavaria(scrapy.Spider):
     def scrape_item(self, product):
         element = Selector(text=product)
         l = ItemLoader(item=Product(), selector=element)
-        l.add_value('restaurant_name', Bavaria.name)
+        l.add_value('restaurant_name', 'Bavaria')
         l.add_css('name', '.food-list-title a::text')
         l.add_value('source', 'site')
         l.add_css('price', '.food-price::text')

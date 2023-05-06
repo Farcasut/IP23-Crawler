@@ -77,3 +77,11 @@ def get_rid_of_special_spaces_without_strip(element):
         return element.replace(u'\xa0', u' ')
     else:
         return None
+    
+def get_rid_of_slashes(element):
+    if element is not None:
+        element = element.replace('\n', '').strip()
+        element = element.replace(u'/', u'').strip()
+        return element
+    else:
+        return None
