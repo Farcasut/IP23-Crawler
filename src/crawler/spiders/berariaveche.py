@@ -6,14 +6,15 @@ from ..items import Product
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.options import Options
+
+from crawler.utils import create_selenium_driver
+
 class BerariaVeche(scrapy.Spider):
     name = 'BerariaVeche'
     start_urls = ['https://berariavecheiasi.poloniq.ro/']
 
     def __init__(self):
-        options = Options()
-        options.add_argument('-headless')
-        self.driver = webdriver.Firefox(options=options)
+        self.driver = create_selenium_driver() 
 
 
     def parse(self, response):

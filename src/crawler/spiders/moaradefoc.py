@@ -15,7 +15,7 @@ class MoaraDeFoc(scrapy.Spider):
         l = ItemLoader(item=Product(), selector=response)
         l.add_value('restaurant_name', 'Moara de Foc')
         l.add_css('name', '.entry-title::text')
-        l.add_css('source', 'site')
+        l.add_value('source', 'site')
         l.add_css('price', '.price-container .amount::text'),
         l.add_css('images', '.attachment-full.size-full.wp-post-image::attr(src)')
         l.add_value('category', '')
