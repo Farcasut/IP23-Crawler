@@ -7,11 +7,11 @@ def get_rid_of_special_spaces(element):
     else:
         return None
 
-from selenium.webdriver.firefox.webdriver import WebDriver
-from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.chrome.webdriver import WebDriver
+from selenium.webdriver.chrome.options import Options
 def create_selenium_driver():
     options = Options()
-    options.add_argument('-headless')
+    options.add_argument('--headless')
     driver = WebDriver(options=options)
     return driver
 

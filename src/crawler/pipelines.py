@@ -10,14 +10,30 @@ import hashlib
 import psycopg2
 import requests
 import boto3
+import os
+
+from scrapy import signals
 
 from crawler.utils import get_rid_of_special_spaces
 
 restaurants_hashmap = {}
 
 class CrawlerPipeline:
+    
+    @classmethod
+    def from_crawler(cls, crawler):
+        crawler_pipeline = cls()
+        crawler.signals.connect(crawler_pipeline.close_spider, signal=signals.spider_closed)
+        return crawler_pipeline
+
     def __init__(self):
-        pass
+        global restaurants_hashmap
+        self.filename = 'restaurants_map.json'
+        if os.path.exists(self.filename):
+            data = open(self.filename, 'r').read()
+            restaurants_hashmap = json.loads(data)
+        
+
     def remove_plurals(self, words):
         new_words = []
         for word in words:
@@ -60,6 +76,12 @@ class CrawlerPipeline:
         
         item['restaurant_name'] = restaurants_hashmap[restaurant_key]
         return item
+    
+    def close_spider(self, spider):
+        global restaurants_hashmap
+        data = json.dumps(restaurants_hashmap)
+        with open(self.filename, 'w') as file:
+            file.write(data)
 
 from crawler.utils import parse_config
 class DownloadImages:
