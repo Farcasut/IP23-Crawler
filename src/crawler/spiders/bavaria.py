@@ -2,6 +2,7 @@ import scrapy
 
 from itemloaders import ItemLoader
 from ..items import Product
+from crawler import utils
 
 from scrapy import Selector
 
@@ -25,7 +26,6 @@ class Bavaria(scrapy.Spider):
         l.add_css('name', '.food-list-title a::text')
         l.add_value('source', 'site')
         l.add_css('price', '.food-price::text')
-        l.add_css('images', '.gdl-image a::attr(href)')
-        l.add_css('category', ".food-menu-list-title::text")
+        l.add_css('images','.gdl-image a::attr(href)')
         l.add_css('description', '.food-list-excerpt::text')
         return l.load_item()

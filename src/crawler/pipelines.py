@@ -1,8 +1,7 @@
 # Define your item pipelines here
 #
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
-# See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-# useful for handling different item types with a single interface
+# See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
 from crawler.items import Product
 from urllib.parse import urlparse
@@ -26,6 +25,8 @@ class CrawlerPipeline:
             item['category'] = item['category'].strip()
         else:
             item['category'] = ''
+        if item.get('images') is None:
+            item['images'] = []
         return item
 
 class DownloadImages:
@@ -51,14 +52,17 @@ class DownloadImages:
                     'image/bmp': '.bmp',
                     'image/x-windows-bmp': '.bmp',
                     'image/webp': '.webp',
-                    'image/svg+xml': '.svg',
+                    'image/svg+xml': '.svg', }
+        self.headers = {
+                    'Connection': 'keep-alive',
                 }
+
 
     def process_item(self, item, spider):
         downloaded_images = []
         for image in item['images']:
             if self.is_valid_url(image):
-                downloaded_images.append(self.download_image(image))
+                downloaded_images.append(self.download_image(spider, image))
         item['images'] = downloaded_images
         return item
 
@@ -69,8 +73,10 @@ class DownloadImages:
         except ValueError:
             return False
 
-    def download_image(self, image) -> str|None:
-        requested = requests.get(image)
+    def download_image(self, spider, image_url) -> str|None:
+        if hasattr(spider, 'requests_session') == False:
+            spider.requests_session = requests.Session()
+        requested = spider.requests_session.get(image_url, headers=self.headers) 
 
         image_data = requested.content
         try:
@@ -83,8 +89,9 @@ class DownloadImages:
         try: 
             with open(self.path+'/'+full_filename, 'wb') as file:
                 file.write(image_data)
-        except error:
-            print(f"Error while trying file to write in filname {path}/{full_filename}: {error}")
+        except:
+            print(f"Error while trying file to write in filname {self.path}/{full_filename}")
+            return None
 
         return full_filename
 

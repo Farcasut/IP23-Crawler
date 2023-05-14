@@ -21,7 +21,7 @@ class BlueAcqua(scrapy.Spider):
         l = ItemLoader(item=Product(), selector=response)
         l.add_value('restaurant_name', BlueAcqua.name)
         l.add_css('name', '.info h2::text')
-        l.add_css('source', 'site')
+        l.add_value('source', 'site')
         l.add_css('price', '.price::text'),
 
         image=  r"https://www.blueacqua.ro/"+ response.css('a::attr(href)').get();
