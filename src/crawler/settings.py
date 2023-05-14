@@ -70,7 +70,7 @@ DOWNLOAD_IMAGES_PATH = 'images'
 ITEM_PIPELINES = {
     "crawler.pipelines.CrawlerPipeline": 300,
     "crawler.pipelines.DownloadImages": 400,
-    #"crawler.pipelines.PostgresPipeline": 500,
+    "crawler.pipelines.PostgresPipeline": 500,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
