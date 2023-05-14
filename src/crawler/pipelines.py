@@ -5,14 +5,13 @@
 from itemadapter import ItemAdapter
 from crawler.items import Product
 from urllib.parse import urlparse
+from scrapy.crawler import signals 
 import json
 import hashlib
 import psycopg2
 import requests
 import boto3
 import os
-
-from scrapy import signals
 
 from crawler.utils import get_rid_of_special_spaces
 
@@ -83,10 +82,13 @@ class CrawlerPipeline:
         with open(self.filename, 'w') as file:
             file.write(data)
 
+already_downloaded_images_list = []
+
 from crawler.utils import parse_config
 class DownloadImages:
 
     def __init__(self):
+        global already_downloaded_images_list
         self.mime_to_extension = {
                     'image/jpeg': '.jpg',
                     'image/jpg': '.jpg',
@@ -105,8 +107,11 @@ class DownloadImages:
         session = boto3.Session(**config_s3)
         s3 = session.resource('s3')
         bucket_name = 'crawlerphotobucket'
-        self.opened_bucket = s3.Bucket(bucket_name) 
-
+        self.opened_bucket = s3.Bucket(bucket_name)
+        
+        if len(already_downloaded_images_list) == 0:
+            for i in self.opened_bucket.objects.all():
+                already_downloaded_images_list.append(i.key)
 
     def process_item(self, item, spider):
         downloaded_images = []
@@ -124,6 +129,7 @@ class DownloadImages:
             return False
 
     def download_image(self, spider, image_url) -> str|None:
+        global already_downloaded_images_list
         if hasattr(spider, 'requests_session') == False:
             spider.requests_session = requests.Session()
         requested = spider.requests_session.get(image_url, headers=self.headers) 
@@ -136,9 +142,13 @@ class DownloadImages:
 
         filename = hashlib.sha256(image_data).hexdigest()
         full_filename = filename + file_extension
-    
+        
+        if full_filename in already_downloaded_images_list:
+            return full_filename
+
         try: 
             self.opened_bucket.put_object(Key=full_filename, Body=image_data)
+            already_downloaded_images_list.append(full_filename)
         except:
             print(f"Error while trying file to upload the filename {full_filename}")
             return None
