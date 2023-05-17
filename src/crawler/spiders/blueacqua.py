@@ -22,7 +22,10 @@ class BlueAcqua(scrapy.Spider):
         l.add_css('name', '.info h2::text')
         l.add_value('source', 'site')
         l.add_css('price', '.price::text'),
-        l.add_value('images', r"https://www.blueacqua.ro/"+ response.css('a::attr(href)').get())
+
+        image = ''
+        if response.css('a::attr(href)').get() is not None:
+            image = r"https://www.blueacqua.ro/" + response.css('a::attr(href)').get()
         l.add_value('category', '')
         l.add_value('description', '')
         yield l.load_item()
