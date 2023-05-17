@@ -30,6 +30,7 @@ class TikiBistro(scrapy.Spider):
                 outerHTML = product.get_attribute('outerHTML')
                 sel = Selector(text= outerHTML)
                 yield from self.scrape_item(sel, category.text)
+
         self.driver.close()
 
 
@@ -44,3 +45,4 @@ class TikiBistro(scrapy.Spider):
         l.add_css('description','.descriere_box::text')
 
         yield l.load_item()
+
