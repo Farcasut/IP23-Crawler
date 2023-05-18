@@ -43,6 +43,13 @@ class CrawlerPipeline:
             else:
                 new_words.append(word)
         return new_words 
+    
+    def only_letters(self, word):
+        output = ""
+        for c in word:
+            if c.isdigit() or c.isalpha():
+                output += c
+        return output
 
     def generate_restaurant_key(self, argument):
         if 'Tribeca' in argument:
@@ -52,8 +59,9 @@ class CrawlerPipeline:
         banned_words = ['restaurant', 'iasi', 'cofetăria', 'cofetaria', 'pizzeria', 'pizzerie', 'pizza', 'and', 'pacurari', 'la', 'vatra', 'delivery', 'nicolina', 'express', 'palas', 'mall', 'iulius', 'pasta', 'bar', 'stefan', 'cel', 'mare', 'costache', 'negri', 'cantemir', 'cu', 'maia', 'quisine', 'cuisine', 'timisoreana', 'bucium', 'egros', 'felicia', 'shopping', 'cafe', 'food', 'feelings', 'friends', 'drink', 'drinks', 'food', 'mexican', 'brunch', 'kiosk', 'pub', 'the', 'raw', 'vegan', 'american', 'by', 'selgros']
         argument = argument.lower()
         filtered_words = filter(lambda x: x not in banned_words, argument.split(' '))
+        filtered_words = [self.only_letters(word) for word in filtered_words]
         filtered_words = self.remove_plurals(filtered_words)
-        return ''.join(filter(lambda x: x.isalnum(), filtered_words))
+        return ''.join(filtered_words)
 
     def process_item(self, item, spider):
         global restaurants_hashmap
