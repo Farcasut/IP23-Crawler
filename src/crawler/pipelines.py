@@ -33,16 +33,13 @@ class CrawlerPipeline:
             restaurants_hashmap = json.loads(data)
         
 
-    def remove_plurals(self, words):
-        new_words = []
-        for word in words:
-            if word.endswith('es'):
-                new_words.append(word[:-2])
-            elif word.endswith('s'):
-                new_words.append(word[:-1])
-            else:
-                new_words.append(word)
-        return new_words 
+    def remove_plurals(self, word):
+        if word.endswith('es'):
+            return word[:-2]
+        elif word.endswith('s'):
+           return word[:-1]
+        else:
+            return word
     
     def only_letters(self, word):
         output = ""
@@ -59,8 +56,7 @@ class CrawlerPipeline:
         banned_words = ['restaurant', 'iasi', 'cofetăria', 'cofetaria', 'pizzeria', 'pizzerie', 'pizza', 'and', 'pacurari', 'la', 'vatra', 'delivery', 'nicolina', 'express', 'palas', 'mall', 'iulius', 'pasta', 'bar', 'stefan', 'cel', 'mare', 'costache', 'negri', 'cantemir', 'cu', 'maia', 'quisine', 'cuisine', 'timisoreana', 'bucium', 'egros', 'felicia', 'shopping', 'cafe', 'food', 'feelings', 'friends', 'drink', 'drinks', 'food', 'mexican', 'brunch', 'kiosk', 'pub', 'the', 'raw', 'vegan', 'american', 'by', 'selgros']
         argument = argument.lower()
         filtered_words = filter(lambda x: x not in banned_words, argument.split(' '))
-        filtered_words = [self.only_letters(word) for word in filtered_words]
-        filtered_words = self.remove_plurals(filtered_words)
+        filtered_words = [self.remove_plurals(self.only_letters(word)) for word in filtered_words]
         return ''.join(filtered_words)
 
     def process_item(self, item, spider):
