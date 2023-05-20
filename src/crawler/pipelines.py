@@ -6,6 +6,7 @@ from itemadapter import ItemAdapter
 from crawler.items import Product
 from urllib.parse import urlparse
 from scrapy.crawler import signals 
+from thefuzz import fuzz
 import json
 import hashlib
 import psycopg2
@@ -16,6 +17,7 @@ import os
 from crawler.utils import get_rid_of_special_spaces
 
 restaurants_hashmap = {}
+products_hashmap = {}
 
 class CrawlerPipeline:
     
@@ -31,6 +33,11 @@ class CrawlerPipeline:
         if os.path.exists(self.filename):
             data = open(self.filename, 'r').read()
             restaurants_hashmap = json.loads(data)
+        
+        self.filename2 = 'products_map.json'
+        if os.path.exists(self.filename):
+            data = open(self.filename, 'r').read()
+            products_hashmap = json.loads(data)
         
 
     def remove_plurals(self, word):
@@ -59,6 +66,18 @@ class CrawlerPipeline:
         filtered_words = [self.remove_plurals(self.only_letters(word)) for word in filtered_words]
         return ''.join(filtered_words)
 
+    def normalize_item_name(self, name, restaurant):
+        global products_hashmap
+        
+        if products_hashmap.get(restaurant) is None:
+            products_hashmap[restaurant] = [name]
+        
+        for product_name in products_hashmap[restaurant]:
+            if fuzz.token_sort_ratio(name.lower(), product_name.lower()) > 60:
+                return product_name
+        products_hashmap[restaurant].append(name)
+        return name
+
     def process_item(self, item, spider):
         global restaurants_hashmap
         item['name'] = item['name'].strip()
@@ -78,12 +97,17 @@ class CrawlerPipeline:
             restaurants_hashmap[restaurant_key] = item['restaurant_name']
         
         item['restaurant_name'] = restaurants_hashmap[restaurant_key]
+        item['name'] = self.normalize_item_name(item['name'], item['restaurant_name'])
         return item
     
     def close_spider(self, spider):
-        global restaurants_hashmap
+        global restaurants_hashmap, products_hashmap
         data = json.dumps(restaurants_hashmap)
         with open(self.filename, 'w') as file:
+            file.write(data)
+        
+        data = json.dumps(products_hashmap)
+        with open(self.filename2, 'w') as file:
             file.write(data)
 
 already_downloaded_images_list = []
