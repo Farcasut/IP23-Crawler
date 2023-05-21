@@ -28,6 +28,8 @@ class BuenaVista(scrapy.Spider):
         if nume != None:
             l = ItemLoader(item=Product(), selector=element)
             l.add_value('restaurant_name', 'Buena Vista')
+            l.add_value('delivery_price', '4.99')
+            l.add_value('min_delivery', '40')
             l.add_value('name', nume)
             l.add_value('source', 'site')
             l.add_value('price', price)

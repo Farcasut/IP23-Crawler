@@ -31,6 +31,8 @@ class RomeoEGiulietta(scrapy.Spider):
              desc = None
         desc = utils.get_rid_of_special_spaces(desc)
         l.add_value('restaurant_name', 'Romeo E Giulietta')
+        l.add_value('delivery_price', '2.99')
+        l.add_value('min_delivery', '30')
         l.add_value('name', utils.get_rid_of_slashes(element.css('.fm-w2-name::text').get().strip()))
         l.add_value('source', 'site')
         l.add_css('price', '.fm-w2-price::text')

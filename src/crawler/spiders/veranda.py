@@ -22,6 +22,8 @@ class Veranda(scrapy.Spider):
     def parse_product(self, response, category):
         l = ItemLoader(item=Product(), selector=response)
         l.add_value('restaurant_name', Veranda.name)
+        l.add_value('delivery_price', '15')
+        l.add_value('min_delivery', '0')
         l.add_value('source', 'site')
         l.add_value('category', category)
         l.add_css('name', '.heading-title::text')

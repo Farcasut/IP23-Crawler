@@ -35,6 +35,8 @@ class MammaMia(scrapy.Spider):
             for product in category_list[i+1].css('.productCard'):
                 item = ItemLoader(item=Product(), response=response, selector=product)
                 item.add_value("restaurant_name", "Mamma Mia")
+                item.add_value('delivery_price', '0')
+                item.add_value('min_delivery', '50')
                 item.add_value('source', 'site')
                 item.add_value('category', category_name)
                 item.add_css('name', '.card-title::text')

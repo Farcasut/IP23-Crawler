@@ -25,6 +25,8 @@ class SushiMaster(scrapy.Spider):
         for i in zip(names, descriptions, prices, images):
             l = ItemLoader(item=Product(), selector=response)
             l.add_value('restaurant_name', 'Sushi Master')
+            l.add_value('delivery_price', '0')
+            l.add_value('min_delivery', '50')
             l.add_value('source', 'site')
             l.add_value('category', category)
             l.add_value('name', i[0].strip())

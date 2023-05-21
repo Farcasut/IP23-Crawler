@@ -62,6 +62,8 @@ class Tazz(scrapy.Spider):
                     deals.append(" ".join(i[0].split(' ')[2:]))
                 l = ItemLoader(item=Product(), selector=response)
                 l.add_value('restaurant_name', current_restaurant.strip())
+                l.add_value('delivery_price', '4.99')
+                l.add_value('min_delivery', '40')
                 l.add_value('source', Tazz.name)
                 l.add_value('category', '')
                 l.add_value('name', i[0].strip())

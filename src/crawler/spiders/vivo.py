@@ -33,6 +33,8 @@ class Vivo(scrapy.Spider):
         l = ItemLoader(item=Product(), selector=selector)
         l.add_value('restaurant_name', Vivo.name)
         l.add_css('name', '.m-item-name::text')
+        l.add_value('delivery_price', '15')
+        l.add_value('min_delivery', '0')
         l.add_value('source', 'site')
         l.add_css('price', '.m-item-price span::text')
         url = selector.css('.m-item-picture::attr(style)').get()

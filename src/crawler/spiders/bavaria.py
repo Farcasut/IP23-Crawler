@@ -22,6 +22,8 @@ class Bavaria(scrapy.Spider):
         element = Selector(text=product)
         l = ItemLoader(item=Product(), selector=element)
         l.add_value('restaurant_name', 'Bavaria')
+        l.add_value('delivery_price', '0')
+        l.add_value('min_delivery', '30')
         l.add_css('name', '.food-list-title a::text')
         l.add_value('source', 'site')
         l.add_css('price', '.food-price::text')

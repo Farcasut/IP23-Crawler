@@ -75,6 +75,8 @@ class Glovo(scrapy.Spider):
                     item.add_value('description', product_description.strip())
 
                 item.add_value('restaurant_name', restaurant_name)
+                item.add_value('delivery_price', '4.99')
+                item.add_value('min_delivery', '40')
                 item.add_value('name', product_name)
                 item.add_value('price', product_price)
                 item.add_value('source', Glovo.name)
@@ -93,10 +95,13 @@ class Glovo(scrapy.Spider):
 
                 item.add_value('images', self.get_product_image('.store-product-image::attr(src)', product))
 
+
                 if category_name != None:
                     item.add_value('category', category_name.strip())
  
                 item.add_value('restaurant_name', restaurant_name)
+                item.add_value('delivery_price', '4.99')
+                item.add_value('min_delivery', '40')
                 item.add_value('name', product_name)
                 item.add_value('price', product_price)
                 item.add_value('source', Glovo.name)
