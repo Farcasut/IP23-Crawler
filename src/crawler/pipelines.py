@@ -73,7 +73,7 @@ class CrawlerPipeline:
             products_hashmap[restaurant] = [name]
         
         for product_name in products_hashmap[restaurant]:
-            if fuzz.token_sort_ratio(name.lower(), product_name.lower()) > 60:
+            if fuzz.token_sort_ratio(name.lower(), product_name.lower()) > 80:
                 return product_name
         products_hashmap[restaurant].append(name)
         return name
@@ -185,7 +185,7 @@ class DownloadImages:
 
 from crawler.utils import create_db_connection
 class PostgresPipeline:
-    query_products = "INSERT INTO products(product_id, product_data) VALUES (%s, %s) ON CONFLICT (product_id) DO UPDATE SET product_data=excluded.product_data"
+    query_products = "INSERT INTO products(product_id, product_data, delivery_price, min_delivery) VALUES (%s, %s, %s, %s) ON CONFLICT (product_id) DO UPDATE SET product_data=excluded.product_data"
     query_restaurants = "INSERT INTO restaurants(restaurant_id, restaurant_data) VALUES (%s, %s) ON CONFLICT DO NOTHING"
 
     def open_spider(self, spider):
@@ -197,13 +197,16 @@ class PostgresPipeline:
         self.connection.close()
 
     def process_item(self, item, spider):
-        json_item = json.dumps(dict(item))
+        item_dict = dict(item)
+        min_delivery = item_dict.pop("min_delivery")
+        delivery_price = item_dict.pop("delivery_price")
+        json_item = json.dumps(item_dict)
         json_restaurant = json.dumps({"restaurant_name": item['restaurant_name']})
 
         try:
             self.cur.execute('BEGIN')
             self.cur.execute(PostgresPipeline.query_restaurants, (self.generate_hash_restaurant(item), json_restaurant)) 
-            self.cur.execute(PostgresPipeline.query_products, (self.generate_hash(item), json_item)) 
+            self.cur.execute(PostgresPipeline.query_products, (self.generate_hash(item), json_item, delivery_price, min_delivery)) 
             self.connection.commit()
         except psycopg2.Error as e:
             print("Error inserting data: ", e, e.with_traceback)
