@@ -86,6 +86,8 @@ def task6():
     print("task6: starting")
     settings = get_project_settings()
     process = CrawlerProcess(settings)
+    process.crawl('Oscar')
+    process.crawl('TikiBistro')
     process.crawl('Tazz')
     process.crawl('Glovo')
     process.start()
