@@ -20,6 +20,8 @@ class Class(scrapy.Spider):
     def scrape_item(self, response):
         l = ItemLoader(item=Product(), selector=response)
         l.add_value('restaurant_name', Class.name)
+        l.add_value('delivery_price', '0')
+        l.add_value('min_delivery', '40')
         l.add_css('name', '.col-md-7.col-sm-6 .title::text')
         l.add_value('source', 'site')
         l.add_css('price', '#pret_total::text')

@@ -33,6 +33,8 @@ class BerariaVeche(scrapy.Spider):
     def scrape_item(self, selector, description):
         l = ItemLoader(item=Product(), selector=selector)
         l.add_value('restaurant_name', 'Beraria Veche')
+        l.add_value('delivery_price', '0')
+        l.add_value('min_delivery', '70')
         l.add_css('name', '.command_menu_list_item_title::text')
         l.add_value('source', 'site')
         l.add_css('price', '.command_menu_list_item_price::text')

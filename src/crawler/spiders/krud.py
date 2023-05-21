@@ -18,6 +18,8 @@ class Krud (scrapy.Spider):
         element = Selector(text=product)
         l = ItemLoader(item=Product(), selector=element)
         l.add_value('restaurant_name', Krud.name)
+        l.add_value('delivery_price', '15')
+        l.add_value('min_delivery', '0')
         l.add_css('name', '.zn-priceList-itemTitle::text')
         l.add_value('source', 'site')
         l.add_css('price', '.zn-priceList-itemPrice::text'),

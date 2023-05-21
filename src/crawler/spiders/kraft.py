@@ -16,6 +16,8 @@ class kraft(scrapy.Spider):
     def scrape_item(self, response):
         l = ItemLoader(item=Product(), selector=response)
         l.add_value('restaurant_name', kraft.name)
+        l.add_value('delivery_price', '4.99')
+        l.add_value('min_delivery', '40')
         l.add_css('name', '#et_prod_title bdi::text')
         l.add_value('source', 'site')
         l.add_value('price', response.css('.ty-price-num::text').get()),

@@ -38,6 +38,8 @@ class TikiBistro(scrapy.Spider):
         l = ItemLoader(item = Product(), selector = selector)
         l.add_value('restaurant_name', 'Tiki Bistro')
         l.add_css('name', '.titlu_box::text')
+        l.add_value('delivery_price', '12')
+        l.add_value('min_delivery', '50')
         l.add_value('source', 'site')
         l.add_css('price','.pret_box::text')
         l.add_css('images', 'img::attr(data-src)')

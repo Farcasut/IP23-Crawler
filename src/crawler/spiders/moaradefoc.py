@@ -14,6 +14,8 @@ class MoaraDeFoc(scrapy.Spider):
     def scrape_item(self, response):
         l = ItemLoader(item=Product(), selector=response)
         l.add_value('restaurant_name', 'Moara de Foc')
+        l.add_value('delivery_price', '0')
+        l.add_value('min_delivery', '50')
         l.add_css('name', '.entry-title::text')
         l.add_value('source', 'site')
         l.add_css('price', '.price-container .amount::text'),

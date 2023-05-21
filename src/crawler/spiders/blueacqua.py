@@ -19,6 +19,8 @@ class BlueAcqua(scrapy.Spider):
     def scrape_item(self, response):
         l = ItemLoader(item=Product(), selector=response)
         l.add_value('restaurant_name', 'Blue Acqua')
+        l.add_value('delivery_price', '4.99')
+        l.add_value('min_delivery', '40')
         l.add_css('name', '.info h2::text')
         l.add_value('source', 'site')
         l.add_css('price', '.price::text'),

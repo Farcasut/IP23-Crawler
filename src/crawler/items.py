@@ -25,3 +25,5 @@ class Product(scrapy.Item):
     description     = scrapy.Field(input_processor = MapCompose(get_rid_of_special_spaces), output_processor = TakeFirst()) 
     price           = scrapy.Field(input_processor = MapCompose(convert_to_float), output_processor = TakeFirst()) # float price
     images          = scrapy.Field() # list of images in the given path
+    delivery_price  = scrapy.Field(input_processor = MapCompose(convert_to_float), output_processor = TakeFirst()) #only the price for delivery
+    min_delivery    = scrapy.Field(input_processor = MapCompose(convert_to_float), output_processor = TakeFirst()) #minimum delvery that you need to fufill

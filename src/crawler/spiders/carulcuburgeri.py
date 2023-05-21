@@ -59,6 +59,8 @@ class CarulCuBurgeri(scrapy.Spider):
     def scrape_item(self, sel, category, image_url):
         l = ItemLoader(item=Product(), selector=sel)
         l.add_value('restaurant_name', 'Carul cu Burgeri')
+        l.add_value('delivery_price', '0')
+        l.add_value('min_delivery', '60')
         l.add_css('name', '.text-capitalize::text')
         l.add_value('source', 'site')
         l.add_css('price', '.prod-price::text')
