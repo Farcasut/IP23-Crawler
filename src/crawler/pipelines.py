@@ -35,8 +35,8 @@ class CrawlerPipeline:
             restaurants_hashmap = json.loads(data)
         
         self.filename2 = 'products_map.json'
-        if os.path.exists(self.filename):
-            data = open(self.filename, 'r').read()
+        if os.path.exists(self.filename2):
+            data = open(self.filename2, 'r').read()
             products_hashmap = json.loads(data)
         
 
