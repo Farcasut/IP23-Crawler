@@ -60,8 +60,6 @@ class CrawlerPhotos(scrapy.Spider):
             search_button.click()
             self.driver.implicitly_wait(50)
             items.append((names, self.driver.find_elements(By.CSS_SELECTOR, '.rg_i.Q4LuWd')[0].get_attribute('src')))
-            # l.add_value("name", names)
-            # l.add_value("image_url", self.driver.find_elements(By.CSS_SELECTOR, '.rg_i.Q4LuWd')[0].get_attribute('src'))
             self.driver.back()
         self.insertRestaurantImages(items)
 
