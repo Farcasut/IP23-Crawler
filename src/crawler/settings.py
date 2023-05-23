@@ -14,9 +14,9 @@ NEWSPIDER_MODULE = "crawler.spiders"
 
 import datetime
 
-#LOG_ENABLED = True
-#LOG_LEVEL = 'ERROR'
-#LOG_FILE = f'logs_{datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}.txt' # Creates a log file with the date it has been run and hour
+LOG_ENABLED = True
+LOG_LEVEL = 'ERROR'
+LOG_FILE = f'logs_{datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}.txt' # Creates a log file with the date it has been run and hour
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
