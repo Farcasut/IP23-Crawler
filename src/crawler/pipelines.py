@@ -98,10 +98,7 @@ class DataNormalization:
             DataNormalization.restaurants_hashmap[restaurant_key] = item['restaurant_name']
         
         item['restaurant_name'] = DataNormalization.restaurants_hashmap[restaurant_key]
-        new_name = self.normalize_item_name(item['name'], restaurant_key)
-        print(f"Setting item['name'] = '{new_name}'")
-        item['name'] = new_name
-        print(f"Result '{item['name']}'")
+        item['name'] = self.normalize_item_name(item['name'], restaurant_key)
         return item
 
 
