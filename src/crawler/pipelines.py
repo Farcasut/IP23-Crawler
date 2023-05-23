@@ -188,7 +188,6 @@ class DownloadImages:
 
 from crawler.utils import create_db_connection
 class PostgresPipeline:
-    #query_products = "INSERT INTO products(product_id, product_data, delivery_price, min_delivery) VALUES (%s, %s, %s, %s) ON CONFLICT (product_id) DO UPDATE SET product_data=excluded.product_data"
     query_products = "INSERT INTO products(product_id, product_data) VALUES (%s, %s) ON CONFLICT (product_id) DO UPDATE SET product_data=excluded.product_data"
     query_restaurants = "INSERT INTO restaurants(restaurant_id, restaurant_data) VALUES (%s, %s) ON CONFLICT DO NOTHING"
 
@@ -202,8 +201,6 @@ class PostgresPipeline:
 
     def process_item(self, item, spider):
         item_dict = dict(item)
-        min_delivery = item_dict.pop("min_delivery")
-        delivery_price = item_dict.pop("delivery_price")
         json_item = json.dumps(item_dict)
         json_restaurant = json.dumps({"restaurant_name": item['restaurant_name']})
 
