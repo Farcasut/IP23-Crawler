@@ -14,9 +14,9 @@ NEWSPIDER_MODULE = "crawler.spiders"
 
 import datetime
 
-LOG_ENABLED = True
-LOG_LEVEL = 'ERROR'
-LOG_FILE = f'logs_{datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}.txt' # Creates a log file with the date it has been run and hour
+#LOG_ENABLED = True
+#LOG_LEVEL = 'ERROR'
+#LOG_FILE = f'logs_{datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}.txt' # Creates a log file with the date it has been run and hour
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
@@ -74,8 +74,9 @@ DOWNLOADER_MIDDLEWARES = {
 
 ITEM_PIPELINES = {
     "crawler.pipelines.CrawlerPipeline": 300,
-    "crawler.pipelines.DownloadImages": 400,
-    "crawler.pipelines.PostgresPipeline": 500,
+    "crawler.pipelines.DataNormalization": 400,
+    "crawler.pipelines.DownloadImages": 500,
+    "crawler.pipelines.PostgresPipeline": 600,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

@@ -16,29 +16,45 @@ import os
 
 from crawler.utils import get_rid_of_special_spaces
 
-restaurants_hashmap = {}
-products_hashmap = {}
 
 class CrawlerPipeline:
+
+    def process_item(self, item, spider):
+        item['name'] = item['name'].strip()
+        if item.get('description') is not None:
+            item['description'] = item['description'].strip()
+        else:
+            item['description'] = ''
+        if item.get('category') is not None:
+            item['category'] = item['category'].strip()
+        else:
+            item['category'] = ''
+        if item.get('images') is None:
+            item['images'] = []
+   
+        return item
+    
+
+class DataNormalization:
+    restaurants_hashmap = {}
+    products_hashmap = {}
     
     @classmethod
     def from_crawler(cls, crawler):
-        crawler_pipeline = cls()
-        crawler.signals.connect(crawler_pipeline.close_spider, signal=signals.spider_closed)
-        return crawler_pipeline
-
+        data_normalization = cls()
+        crawler.signals.connect(data_normalization.close_spider, signal=signals.spider_closed)
+        return data_normalization 
+    
     def __init__(self):
-        global restaurants_hashmap
-        self.filename = 'restaurants_map.json'
-        if os.path.exists(self.filename):
-            data = open(self.filename, 'r').read()
-            restaurants_hashmap = json.loads(data)
+        self.restaurant_map_file = 'restaurants_map.json'
+        if os.path.exists(self.restaurant_map_file):
+            data = open(self.restaurant_map_file, 'r').read()
+            DataNormalization.restaurants_hashmap = json.loads(data)
         
-        self.filename2 = 'products_map.json'
-        if os.path.exists(self.filename2):
-            data = open(self.filename2, 'r').read()
-            products_hashmap = json.loads(data)
-        
+        self.product_map_file = 'products_map.json'
+        if os.path.exists(self.product_map_file):
+            data = open(self.product_map_file, 'r').read()
+            DataNormalization.products_hashmap = json.loads(data)
 
     def remove_plurals(self, word):
         if word.endswith('es'):
@@ -67,56 +83,44 @@ class CrawlerPipeline:
         return ''.join(filtered_words)
 
     def normalize_item_name(self, name, restaurant):
-        global products_hashmap
+        if DataNormalization.products_hashmap.get(restaurant) is None:
+            DataNormalization.products_hashmap[restaurant] = [name]
         
-        if products_hashmap.get(restaurant) is None:
-            products_hashmap[restaurant] = [name]
-        
-        for product_name in products_hashmap[restaurant]:
-            if fuzz.token_sort_ratio(name.lower(), product_name.lower()) > 80:
+        for product_name in DataNormalization.products_hashmap[restaurant]:
+            if fuzz.token_sort_ratio(name.lower(), product_name.lower()) >= 70:
                 return product_name
-        products_hashmap[restaurant].append(name)
+        DataNormalization.products_hashmap[restaurant].append(name)
         return name
-
+   
     def process_item(self, item, spider):
-        global restaurants_hashmap
-        item['name'] = item['name'].strip()
-        if item.get('description') is not None:
-            item['description'] = item['description'].strip()
-        else:
-            item['description'] = ''
-        if item.get('category') is not None:
-            item['category'] = item['category'].strip()
-        else:
-            item['category'] = ''
-        if item.get('images') is None:
-            item['images'] = []
-        
         restaurant_key = self.generate_restaurant_key(item['restaurant_name'])
-        if restaurant_key not in restaurants_hashmap:
-            restaurants_hashmap[restaurant_key] = item['restaurant_name']
+        if restaurant_key not in DataNormalization.restaurants_hashmap:
+            DataNormalization.restaurants_hashmap[restaurant_key] = item['restaurant_name']
         
-        item['restaurant_name'] = restaurants_hashmap[restaurant_key]
-        item['name'] = self.normalize_item_name(item['name'], item['restaurant_name'])
+        item['restaurant_name'] = DataNormalization.restaurants_hashmap[restaurant_key]
+        new_name = self.normalize_item_name(item['name'], restaurant_key)
+        print(f"Setting item['name'] = '{new_name}'")
+        item['name'] = new_name
+        print(f"Result '{item['name']}'")
         return item
-    
+
+
     def close_spider(self, spider):
-        global restaurants_hashmap, products_hashmap
-        data = json.dumps(restaurants_hashmap)
-        with open(self.filename, 'w') as file:
+        data = json.dumps(DataNormalization.restaurants_hashmap)
+        with open(self.restaurant_map_file, 'w') as file:
             file.write(data)
         
-        data = json.dumps(products_hashmap)
-        with open(self.filename2, 'w') as file:
+        data = json.dumps(DataNormalization.products_hashmap)
+        with open(self.product_map_file, 'w') as file:
             file.write(data)
 
-already_downloaded_images_list = []
 
 from crawler.utils import parse_config
 class DownloadImages:
+   
+    already_downloaded_images_list = []
 
     def __init__(self):
-        global already_downloaded_images_list
         self.mime_to_extension = {
                     'image/jpeg': '.jpg',
                     'image/jpg': '.jpg',
@@ -137,9 +141,9 @@ class DownloadImages:
         bucket_name = 'crawlerphotobucket'
         self.opened_bucket = s3.Bucket(bucket_name)
         
-        if len(already_downloaded_images_list) == 0:
+        if len(DownloadImages.already_downloaded_images_list) == 0:
             for i in self.opened_bucket.objects.all():
-                already_downloaded_images_list.append(i.key)
+                DownloadImages.already_downloaded_images_list.append(i.key)
 
     def process_item(self, item, spider):
         downloaded_images = []
@@ -157,7 +161,6 @@ class DownloadImages:
             return False
 
     def download_image(self, spider, image_url) -> str|None:
-        global already_downloaded_images_list
         if hasattr(spider, 'requests_session') == False:
             spider.requests_session = requests.Session()
         requested = spider.requests_session.get(image_url, headers=self.headers) 
@@ -171,12 +174,12 @@ class DownloadImages:
         filename = hashlib.sha256(image_data).hexdigest()
         full_filename = filename + file_extension
         
-        if full_filename in already_downloaded_images_list:
+        if full_filename in DownloadImages.already_downloaded_images_list:
             return full_filename
 
         try: 
             self.opened_bucket.put_object(Key=full_filename, Body=image_data)
-            already_downloaded_images_list.append(full_filename)
+            DownloadImages.already_downloaded_images_list.append(full_filename)
         except:
             print(f"Error while trying file to upload the filename {full_filename}")
             return None
@@ -185,7 +188,8 @@ class DownloadImages:
 
 from crawler.utils import create_db_connection
 class PostgresPipeline:
-    query_products = "INSERT INTO products(product_id, product_data, delivery_price, min_delivery) VALUES (%s, %s, %s, %s) ON CONFLICT (product_id) DO UPDATE SET product_data=excluded.product_data"
+    #query_products = "INSERT INTO products(product_id, product_data, delivery_price, min_delivery) VALUES (%s, %s, %s, %s) ON CONFLICT (product_id) DO UPDATE SET product_data=excluded.product_data"
+    query_products = "INSERT INTO products(product_id, product_data) VALUES (%s, %s) ON CONFLICT (product_id) DO UPDATE SET product_data=excluded.product_data"
     query_restaurants = "INSERT INTO restaurants(restaurant_id, restaurant_data) VALUES (%s, %s) ON CONFLICT DO NOTHING"
 
     def open_spider(self, spider):
@@ -206,7 +210,7 @@ class PostgresPipeline:
         try:
             self.cur.execute('BEGIN')
             self.cur.execute(PostgresPipeline.query_restaurants, (self.generate_hash_restaurant(item), json_restaurant)) 
-            self.cur.execute(PostgresPipeline.query_products, (self.generate_hash(item), json_item, delivery_price, min_delivery)) 
+            self.cur.execute(PostgresPipeline.query_products, (self.generate_hash(item), json_item)) 
             self.connection.commit()
         except psycopg2.Error as e:
             print("Error inserting data: ", e, e.with_traceback)
