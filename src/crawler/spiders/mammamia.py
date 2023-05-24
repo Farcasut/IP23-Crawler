@@ -20,7 +20,8 @@ class MammaMia(scrapy.Spider):
 
     def __init__(self):
         self.driver = create_selenium_driver() 
-        self.driver.get(self.start_urls[0]) 
+        self.driver.get(self.start_urls[0])
+        self.driver.implicitly_wait(60)
         lirare_btn = self.driver.find_element(By.CLASS_NAME, 'btn')
         lirare_btn.click()
 
@@ -29,6 +30,7 @@ class MammaMia(scrapy.Spider):
             yield SeleniumRequest(url=url, callback=self.parse)
 
     def parse(self, response : HtmlResponse):
+        self.driver.implicitly_wait(60)
         category_list = response.css('.col-md-12')
         for i in range(1, len(category_list), 2):
             category_name = category_list[i].css('h5::text').get()

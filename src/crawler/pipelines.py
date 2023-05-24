@@ -158,15 +158,28 @@ class DownloadImages:
             return False
 
     def download_image(self, spider, image_url) -> str|None:
-        if hasattr(spider, 'requests_session') == False:
-            spider.requests_session = requests.Session()
-        requested = spider.requests_session.get(image_url, headers=self.headers) 
+        image_data = b''
+        file_extension = ''
 
-        image_data = requested.content
-        try:
-            file_extension = self.mime_to_extension[requested.headers['Content-Type']] 
-        except KeyError:
-            return None
+        if image_url.startswith('data:'):
+            import base64
+
+            header = image_url.split(',')[0]
+            base64_encoded = image_url.split(',')[1]
+            
+            mime = header.split(':')[1].split(';')[0]
+            image_data = base64.b64decode(base64_encoded)
+            file_extension = self.mime_to_extension[mime]
+        else:
+            if hasattr(spider, 'requests_session') == False:
+                spider.requests_session = requests.Session()
+            requested = spider.requests_session.get(image_url, headers=self.headers) 
+
+            image_data = requested.content
+            try:
+                file_extension = self.mime_to_extension[requested.headers['Content-Type']] 
+            except KeyError:
+                return None
 
         filename = hashlib.sha256(image_data).hexdigest()
         full_filename = filename + file_extension
@@ -186,7 +199,7 @@ class DownloadImages:
 from crawler.utils import create_db_connection
 class PostgresPipeline:
     query_products = "INSERT INTO products(product_id, product_data) VALUES (%s, %s) ON CONFLICT (product_id) DO UPDATE SET product_data=excluded.product_data"
-    query_restaurants = "INSERT INTO restaurants(restaurant_id, restaurant_data) VALUES (%s, %s) ON CONFLICT DO NOTHING"
+    query_restaurants = "INSERT INTO restaurants(restaurant_id, restaurant_data) VALUES (%s, %s) ON CONFLICT (restaurant_id) DO UPDATE SET restaurant_data=excluded.restaurant_data"
 
     def open_spider(self, spider):
         self.connection = create_db_connection() 
@@ -198,12 +211,23 @@ class PostgresPipeline:
 
     def process_item(self, item, spider):
         item_dict = dict(item)
+        
+        min_delivery = item_dict.pop('min_delivery')
+        delivery_price = item_dict.pop('delivery_price')
+        restaurant_name = item_dict['restaurant_name']
+        source = item_dict['source']
+        json_restaurant = json.dumps({"restaurant_name": restaurant_name,
+                                      "min_delivery": min_delivery,
+                                      "delivery_price": delivery_price,
+                                      "source": source
+                                      })
+        hash_restaurant = self.generate_hash_restaurant(item)
+        item_dict['restaurant_id'] = hash_restaurant
         json_item = json.dumps(item_dict)
-        json_restaurant = json.dumps({"restaurant_name": item['restaurant_name']})
 
         try:
             self.cur.execute('BEGIN')
-            self.cur.execute(PostgresPipeline.query_restaurants, (self.generate_hash_restaurant(item), json_restaurant)) 
+            self.cur.execute(PostgresPipeline.query_restaurants, (hash_restaurant, json_restaurant)) 
             self.cur.execute(PostgresPipeline.query_products, (self.generate_hash(item), json_item)) 
             self.connection.commit()
         except psycopg2.Error as e:
@@ -212,7 +236,7 @@ class PostgresPipeline:
         return item
     
     def generate_hash_restaurant(self, item):
-        data = item['restaurant_name']
+        data = item['restaurant_name'] + item['source']
         data = str(data).encode('utf-8')
         return hashlib.sha1(data).hexdigest()
 

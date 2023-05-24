@@ -6,15 +6,14 @@ from ..items import  Product
 from selenium import  webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.options import Options
+from crawler.utils import create_selenium_driver
 
 class TikiBistro(scrapy.Spider):
     name = 'TikiBistro'
     start_urls = ['https://delivery.tikibistro.ro/meniu']
 
     def __init__(self):
-        options = Options()
-        options.add_argument('-headless')
-        self.driver = webdriver.Firefox(options = options)
+        self.driver = create_selenium_driver() 
         self.pattern = re.compile(r'(https:.*\.jpg)')
 
 

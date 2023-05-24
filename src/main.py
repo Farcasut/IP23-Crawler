@@ -21,6 +21,9 @@ def main():
     p6 = multiprocessing.Process(target=task6)
     p6.start()
     p6.join()
+    p7 = multiprocessing.Process(target=images)
+    p7.start()
+    p7.join()
 
 def task1():
     print("task1: starting")
@@ -94,6 +97,14 @@ def task6():
     print("task6: done")
 
 
+def images():
+    print("Downloading restaurant images")
+    settings = get_project_settings()
+    process = CrawlerProcess(settings)
+    process.crawl('RestaurantPhotos')
+    process.start()
+    
+
+
 if __name__ == '__main__':
     main()
-
