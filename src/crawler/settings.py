@@ -74,8 +74,9 @@ DOWNLOADER_MIDDLEWARES = {
 
 ITEM_PIPELINES = {
     "crawler.pipelines.CrawlerPipeline": 300,
-    "crawler.pipelines.DownloadImages": 400,
-    "crawler.pipelines.PostgresPipeline": 500,
+    "crawler.pipelines.DataNormalization": 400,
+    "crawler.pipelines.DownloadImages": 500,
+    "crawler.pipelines.PostgresPipeline": 600,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
