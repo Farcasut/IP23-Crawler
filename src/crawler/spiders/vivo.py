@@ -6,14 +6,15 @@ from ..items import Product
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.firefox.options import Options
+
+from crawler.utils import create_selenium_driver
+
 class Vivo(scrapy.Spider):
     name = 'Vivo'
     start_urls = ['https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=7254b63a-69e7-462d-be57-0b2505ab14a6']
 
     def __init__(self):
-        options = Options()
-        options.add_argument('-headless')
-        self.driver = webdriver.Firefox(options=options)
+        self.driver = create_selenium_driver() 
         self.pattern =  re.compile(r'(https:.*\.jpg)')
 
     def parse(self, response):
@@ -32,6 +33,8 @@ class Vivo(scrapy.Spider):
         l = ItemLoader(item=Product(), selector=selector)
         l.add_value('restaurant_name', Vivo.name)
         l.add_css('name', '.m-item-name::text')
+        l.add_value('delivery_price', '15')
+        l.add_value('min_delivery', '0')
         l.add_value('source', 'site')
         l.add_css('price', '.m-item-price span::text')
         url = selector.css('.m-item-picture::attr(style)').get()

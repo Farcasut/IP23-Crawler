@@ -21,6 +21,8 @@ class Rigatoni(scrapy.Spider):
     def scrape_item(self, response):
         l = ItemLoader(item=Product(), selector=response)
         l.add_value('restaurant_name', Rigatoni.name)
+        l.add_value('delivery_price', '15')
+        l.add_value('min_delivery', '0')
         l.add_css('name', '.heading-title::text')
         l.add_value('source', 'site')
         l.add_css('price', 'bdi::text')

@@ -7,11 +7,11 @@ def get_rid_of_special_spaces(element):
     else:
         return None
 
-from selenium.webdriver.firefox.webdriver import WebDriver
-from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.chrome.webdriver import WebDriver
+from selenium.webdriver.chrome.options import Options
 def create_selenium_driver():
     options = Options()
-    options.add_argument('-headless')
+    options.add_argument('--headless')
     driver = WebDriver(options=options)
     return driver
 
@@ -49,16 +49,16 @@ def parse_config(filename='crawler/configs/database.ini', section='postgresql'):
     parser = ConfigParser()
     parser.read(filename)
 
-    database_configuration = {}
+    configuration = {}
 
     if parser.has_section(section):
         parameters = parser.items(section)
         for parameter in parameters:
-            database_configuration[parameter[0]] = parameter[1]
+            configuration[parameter[0]] = parameter[1]
     else:
         raise Exception(f"Section {section} not found in the {filename} file.")
 
-    return database_configuration
+    return configuration
 
 import psycopg2
 def create_db_connection():
@@ -75,5 +75,13 @@ def create_db_connection():
 def get_rid_of_special_spaces_without_strip(element):
     if element is not None:
         return element.replace(u'\xa0', u' ')
+    else:
+        return None
+    
+def get_rid_of_slashes(element):
+    if element is not None:
+        element = element.replace('\n', '').strip()
+        element = element.replace(u'/', u'').strip()
+        return element
     else:
         return None

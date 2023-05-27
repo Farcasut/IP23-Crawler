@@ -14,13 +14,14 @@ class CuptorulMoldovencei(scrapy.Spider):
     def parse(self, response):
         product_pages = response.css(
             '.woocommerce-LoopProduct-link.woocommerce-loop-product__link::attr(href)').getall()
-        print(product_pages)
         for product_page in product_pages:
             yield response.follow(product_page, callback=self.scrape_item)
 
     def scrape_item(self, response):
         l = ItemLoader(item=Product(), selector=response)
-        l.add_value('restaurant_name', CuptorulMoldovencei.name)
+        l.add_value('restaurant_name', 'Cuptorul Moldovencei')
+        l.add_value('delivery_price', '26')
+        l.add_value('min_delivery', '0')
         l.add_css('name', '.entry-title::text')
         l.add_value('source', 'site')
         l.add_value('price', utils.get_rid_of_special_spaces(

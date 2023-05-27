@@ -12,6 +12,12 @@ BOT_NAME = "imi_place_sa_mananc"
 SPIDER_MODULES = ["crawler.spiders"]
 NEWSPIDER_MODULE = "crawler.spiders"
 
+import datetime
+
+LOG_ENABLED = True
+LOG_LEVEL = 'ERROR'
+LOG_FILE = f'logs_{datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")}.txt' # Creates a log file with the date it has been run and hour
+
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36"
@@ -65,12 +71,12 @@ DOWNLOADER_MIDDLEWARES = {
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-DOWNLOAD_IMAGES_PATH = 'images'
 
 ITEM_PIPELINES = {
     "crawler.pipelines.CrawlerPipeline": 300,
-    "crawler.pipelines.DownloadImages": 400,
-    "crawler.pipelines.PostgresPipeline": 500,
+    "crawler.pipelines.DataNormalization": 400,
+    "crawler.pipelines.DownloadImages": 500,
+    "crawler.pipelines.PostgresPipeline": 600,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
