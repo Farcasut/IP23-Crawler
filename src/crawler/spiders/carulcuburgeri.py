@@ -58,11 +58,14 @@ class CarulCuBurgeri(scrapy.Spider):
 
     def scrape_item(self, sel, category, image_url):
         l = ItemLoader(item=Product(), selector=sel)
-        l.add_value('restaurant_name', 'Carul cu Burgeri')
+        l.add_value('restaurant_name', CarulCuBurgeri.name)
         l.add_css('name', '.text-capitalize::text')
         l.add_value('source', 'site')
-        l.add_css('price', '.prod-price::text')
         l.add_value('images', image_url)
+        if category not in ["Sosuri", "Bauturi"]:
+            l.add_css('price', 'div.product-details-card .prod-price > div:nth-child(1)::text')
+        else:
+            l.add_css('price', ".product-container .divider-container .prod-price.d-flex div::text")
         l.add_value('category', category)
         l.add_css('description', ".details::text")
         yield l.load_item()
