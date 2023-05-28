@@ -2,8 +2,8 @@ import scrapy
 from scrapy.loader import ItemLoader
 
 from ..items import Product
-class PizzaMan(scrapy.Spider):
-    name = 'PizzaMan'
+class ManPizza(scrapy.Spider):
+    name = 'Man Pizza'
     start_urls = ['https://www.manpizza.ro']
 
 
@@ -22,7 +22,7 @@ class PizzaMan(scrapy.Spider):
 
     def parse_product(self, response, category):
         l = ItemLoader(item = Product(), selector= response)
-        l.add_value('restaurant_name', PizzaMan.name)
+        l.add_value('restaurant_name', ManPizza.name)
         l.add_value('delivery_price', '0')
         l.add_value('min_delivery', '50')
         l.add_value('source', 'site')
