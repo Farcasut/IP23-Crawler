@@ -1,0 +1,61 @@
+crawler package
+===============
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   crawler.spiders
+
+Submodules
+----------
+
+crawler.items module
+--------------------
+
+.. automodule:: crawler.items
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+crawler.middlewares module
+--------------------------
+
+.. automodule:: crawler.middlewares
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+crawler.pipelines module
+------------------------
+
+.. automodule:: crawler.pipelines
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+crawler.settings module
+-----------------------
+
+.. automodule:: crawler.settings
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+crawler.utils module
+--------------------
+
+.. automodule:: crawler.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: crawler
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>crawler.spiders package &mdash; Crawler 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="main module" href="main.html" />
+    <link rel="prev" title="crawler package" href="crawler.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Crawler
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">src</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="crawler.html">crawler package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="crawler.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">crawler.spiders package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="crawler.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="crawler.html#module-crawler.items">crawler.items module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="crawler.html#module-crawler.middlewares">crawler.middlewares module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="crawler.html#crawler-pipelines-module">crawler.pipelines module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="crawler.html#module-crawler.settings">crawler.settings module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="crawler.html#module-crawler.utils">crawler.utils module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="crawler.html#module-crawler">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Crawler</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">src</a></li>
+          <li class="breadcrumb-item"><a href="crawler.html">crawler package</a></li>
+      <li class="breadcrumb-item active">crawler.spiders package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/crawler.spiders.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="crawler-spiders-package">
+<h1>crawler.spiders package<a class="headerlink" href="#crawler-spiders-package" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-crawler.spiders.alila">
+<span id="crawler-spiders-alila-module"></span><h2>crawler.spiders.alila module<a class="headerlink" href="#module-crawler.spiders.alila" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="crawler.spiders.alila.Alila">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">crawler.spiders.alila.</span></span><span class="sig-name descname"><span class="pre">Alila</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/alila.html#Alila"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.alila.Alila" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Spider</span></code></p>
+<p>A Scrapy spider for scraping data from the Alila website.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>name (str): The name of the spider.
+start_urls (list): The list of URLs to start crawling from.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.alila.Alila.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Alila'</span></em><a class="headerlink" href="#crawler.spiders.alila.Alila.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.alila.Alila.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/alila.html#Alila.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.alila.Alila.parse" title="Permalink to this definition"></a></dt>
+<dd><p>Parse the initial response and start scraping the data.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>response (scrapy.http.Response): The response received from the start_urls.</p>
+</dd>
+<dt>Returns:</dt><dd><p>generator: A generator yielding scraped items.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.alila.Alila.scrape_item">
+<span class="sig-name descname"><span class="pre">scrape_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/alila.html#Alila.scrape_item"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.alila.Alila.scrape_item" title="Permalink to this definition"></a></dt>
+<dd><p>Scrape data from an individual item.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>response (scrapy.http.Response): The response received from following an item link.</p>
+</dd>
+<dt>Returns:</dt><dd><p>generator: A generator yielding scraped items.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.alila.Alila.scrape_page">
+<span class="sig-name descname"><span class="pre">scrape_page</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/alila.html#Alila.scrape_page"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.alila.Alila.scrape_page" title="Permalink to this definition"></a></dt>
+<dd><p>Scrape data from a specific category page.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>response (scrapy.http.Response): The response received from following a category page link.</p>
+</dd>
+<dt>Returns:</dt><dd><p>generator: A generator yielding scraped items.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.alila.Alila.start_urls">
+<span class="sig-name descname"><span class="pre">start_urls</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['https://pizzeriaalila.ro/shop/']</span></em><a class="headerlink" href="#crawler.spiders.alila.Alila.start_urls" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-crawler.spiders.bavaria">
+<span id="crawler-spiders-bavaria-module"></span><h2>crawler.spiders.bavaria module<a class="headerlink" href="#module-crawler.spiders.bavaria" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="crawler.spiders.bavaria.Bavaria">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">crawler.spiders.bavaria.</span></span><span class="sig-name descname"><span class="pre">Bavaria</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/bavaria.html#Bavaria"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.bavaria.Bavaria" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Spider</span></code></p>
+<p>A Scrapy spider for scraping data from the Bavaria website.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>name (str): The name of the spider.
+start_urls (list): The list of URLs to start crawling from.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.bavaria.Bavaria.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Bavaria'</span></em><a class="headerlink" href="#crawler.spiders.bavaria.Bavaria.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.bavaria.Bavaria.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/bavaria.html#Bavaria.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.bavaria.Bavaria.parse" title="Permalink to this definition"></a></dt>
+<dd><p>Parse the initial response and start scraping the data.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>response (scrapy.http.Response): The response received from the start_urls.</p>
+</dd>
+<dt>Returns:</dt><dd><p>generator: A generator yielding scraped items.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.bavaria.Bavaria.scrape_item">
+<span class="sig-name descname"><span class="pre">scrape_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">product</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/bavaria.html#Bavaria.scrape_item"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.bavaria.Bavaria.scrape_item" title="Permalink to this definition"></a></dt>
+<dd><p>Scrape data from an individual item.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>product (str): The HTML content of an item.</p>
+</dd>
+<dt>Returns:</dt><dd><p>dict: A dictionary containing the scraped item data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.bavaria.Bavaria.start_urls">
+<span class="sig-name descname"><span class="pre">start_urls</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['https://www.bavariaiasi.ro/menu/']</span></em><a class="headerlink" href="#crawler.spiders.bavaria.Bavaria.start_urls" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-crawler.spiders.berariaveche">
+<span id="crawler-spiders-berariaveche-module"></span><h2>crawler.spiders.berariaveche module<a class="headerlink" href="#module-crawler.spiders.berariaveche" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="crawler.spiders.berariaveche.BerariaVeche">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">crawler.spiders.berariaveche.</span></span><span class="sig-name descname"><span class="pre">BerariaVeche</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/berariaveche.html#BerariaVeche"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.berariaveche.BerariaVeche" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Spider</span></code></p>
+<p>A Scrapy spider for scraping data from the Beraria Veche website.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>name (str): The name of the spider.
+start_urls (list): The list of URLs to start crawling from.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.berariaveche.BerariaVeche.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'BerariaVeche'</span></em><a class="headerlink" href="#crawler.spiders.berariaveche.BerariaVeche.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.berariaveche.BerariaVeche.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/berariaveche.html#BerariaVeche.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.berariaveche.BerariaVeche.parse" title="Permalink to this definition"></a></dt>
+<dd><p>Parse the initial response and start scraping the data.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>response (scrapy.http.Response): The response received from the start_urls.</p>
+</dd>
+<dt>Returns:</dt><dd><p>generator: A generator yielding scraped items.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.berariaveche.BerariaVeche.scrape_item">
+<span class="sig-name descname"><span class="pre">scrape_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">selector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/berariaveche.html#BerariaVeche.scrape_item"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.berariaveche.BerariaVeche.scrape_item" title="Permalink to this definition"></a></dt>
+<dd><p>Scrape data from an individual item.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>selector (scrapy.Selector): The selector for the item.
+description (selenium.webdriver.remote.webelement.WebElement): The description element of the item.</p>
+</dd>
+<dt>Returns:</dt><dd><p>generator: A generator yielding scraped items.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.berariaveche.BerariaVeche.start_urls">
+<span class="sig-name descname"><span class="pre">start_urls</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['https://berariavecheiasi.poloniq.ro/']</span></em><a class="headerlink" href="#crawler.spiders.berariaveche.BerariaVeche.start_urls" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-crawler.spiders.buenavista">
+<span id="crawler-spiders-buenavista-module"></span><h2>crawler.spiders.buenavista module<a class="headerlink" href="#module-crawler.spiders.buenavista" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="crawler.spiders.buenavista.BuenaVista">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">crawler.spiders.buenavista.</span></span><span class="sig-name descname"><span class="pre">BuenaVista</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/buenavista.html#BuenaVista"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.buenavista.BuenaVista" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Spider</span></code></p>
+<p>A Scrapy spider for scraping data from the Buena Vista website.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>name (str): The name of the spider.
+start_urls (list): The list of URLs to start crawling from.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.buenavista.BuenaVista.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'BuenaVista'</span></em><a class="headerlink" href="#crawler.spiders.buenavista.BuenaVista.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.buenavista.BuenaVista.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/buenavista.html#BuenaVista.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.buenavista.BuenaVista.parse" title="Permalink to this definition"></a></dt>
+<dd><p>Parse the initial response and start scraping the data.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>response (scrapy.http.Response): The response received from the start_urls.</p>
+</dd>
+<dt>Returns:</dt><dd><p>generator: A generator yielding scraped items.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.buenavista.BuenaVista.scrape_item">
+<span class="sig-name descname"><span class="pre">scrape_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">product</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/buenavista.html#BuenaVista.scrape_item"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.buenavista.BuenaVista.scrape_item" title="Permalink to this definition"></a></dt>
+<dd><p>Scrape data from an individual item.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>product (str): The HTML markup of the product item.</p>
+</dd>
+<dt>Returns:</dt><dd><p>dict: A dictionary containing the scraped data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.buenavista.BuenaVista.start_urls">
+<span class="sig-name descname"><span class="pre">start_urls</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['https://www.buena-vista.ro/menu/']</span></em><a class="headerlink" href="#crawler.spiders.buenavista.BuenaVista.start_urls" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-crawler.spiders.carulcuburgeri">
+<span id="crawler-spiders-carulcuburgeri-module"></span><h2>crawler.spiders.carulcuburgeri module<a class="headerlink" href="#module-crawler.spiders.carulcuburgeri" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="crawler.spiders.carulcuburgeri.CarulCuBurgeri">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">crawler.spiders.carulcuburgeri.</span></span><span class="sig-name descname"><span class="pre">CarulCuBurgeri</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/carulcuburgeri.html#CarulCuBurgeri"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.carulcuburgeri.CarulCuBurgeri" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Spider</span></code></p>
+<p>A Scrapy spider for scraping data from the CarulCuBurgeri website.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>name (str): The name of the spider.
+start_urls (list): The list of URLs to start crawling from.
+driver (webdriver): The Selenium webdriver instance.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.carulcuburgeri.CarulCuBurgeri.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'CarulCuBurgeri'</span></em><a class="headerlink" href="#crawler.spiders.carulcuburgeri.CarulCuBurgeri.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.carulcuburgeri.CarulCuBurgeri.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/carulcuburgeri.html#CarulCuBurgeri.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.carulcuburgeri.CarulCuBurgeri.parse" title="Permalink to this definition"></a></dt>
+<dd><p>Parse the initial response and start scraping the data.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>response (scrapy.http.Response): The response received from the start_urls.</p>
+</dd>
+<dt>Returns:</dt><dd><p>generator: A generator yielding scraped items.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.carulcuburgeri.CarulCuBurgeri.scrape_item">
+<span class="sig-name descname"><span class="pre">scrape_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image_url</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/carulcuburgeri.html#CarulCuBurgeri.scrape_item"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.carulcuburgeri.CarulCuBurgeri.scrape_item" title="Permalink to this definition"></a></dt>
+<dd><p>Scrape data from an individual item.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>sel (scrapy.Selector): The selector for the item.
+category (str): The category of the item.
+image_url (str): The URL of the item’s image.</p>
+</dd>
+<dt>Returns:</dt><dd><p>generator: A generator yielding scraped items.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.carulcuburgeri.CarulCuBurgeri.scrape_page">
+<span class="sig-name descname"><span class="pre">scrape_page</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">page_link</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/carulcuburgeri.html#CarulCuBurgeri.scrape_page"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.carulcuburgeri.CarulCuBurgeri.scrape_page" title="Permalink to this definition"></a></dt>
+<dd><p>Scrape data from a specific page.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>page_link (str): The URL of the page to scrape.
+category (str): The category of the products on the page.</p>
+</dd>
+<dt>Returns:</dt><dd><p>generator: A generator yielding scraped items.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.carulcuburgeri.CarulCuBurgeri.start_urls">
+<span class="sig-name descname"><span class="pre">start_urls</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['https://carulcuburgeri.ro']</span></em><a class="headerlink" href="#crawler.spiders.carulcuburgeri.CarulCuBurgeri.start_urls" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-crawler.spiders.cheffa">
+<span id="crawler-spiders-cheffa-module"></span><h2>crawler.spiders.cheffa module<a class="headerlink" href="#module-crawler.spiders.cheffa" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="crawler.spiders.cheffa.Cheffa">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">crawler.spiders.cheffa.</span></span><span class="sig-name descname"><span class="pre">Cheffa</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/cheffa.html#Cheffa"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.cheffa.Cheffa" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Spider</span></code></p>
+<p>A Scrapy spider for scraping data from the Cheffa website.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>name (str): The name of the spider.
+start_urls (list): The list of URLs to start crawling from.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.cheffa.Cheffa.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Cheffa'</span></em><a class="headerlink" href="#crawler.spiders.cheffa.Cheffa.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.cheffa.Cheffa.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/cheffa.html#Cheffa.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.cheffa.Cheffa.parse" title="Permalink to this definition"></a></dt>
+<dd><p>Parse the initial response and start scraping the data.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>response (scrapy.http.Response): The response received from the start_urls.</p>
+</dd>
+<dt>Returns:</dt><dd><p>generator: A generator yielding scraped items.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.cheffa.Cheffa.scrape_item">
+<span class="sig-name descname"><span class="pre">scrape_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/cheffa.html#Cheffa.scrape_item"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.cheffa.Cheffa.scrape_item" title="Permalink to this definition"></a></dt>
+<dd><p>Scrape data from an individual item.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>response (scrapy.http.Response): The response received from following an item link.
+category (str): The category of the product.</p>
+</dd>
+<dt>Returns:</dt><dd><p>generator: A generator yielding scraped items.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.cheffa.Cheffa.scrape_page">
+<span class="sig-name descname"><span class="pre">scrape_page</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/cheffa.html#Cheffa.scrape_page"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.cheffa.Cheffa.scrape_page" title="Permalink to this definition"></a></dt>
+<dd><p>Scrape data from a specific category page.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>response (scrapy.http.Response): The response received from following a category page link.
+category (str): The category of the products on the page.</p>
+</dd>
+<dt>Returns:</dt><dd><p>generator: A generator yielding scraped items.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.cheffa.Cheffa.start_urls">
+<span class="sig-name descname"><span class="pre">start_urls</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['https://www.cheffa.ro/']</span></em><a class="headerlink" href="#crawler.spiders.cheffa.Cheffa.start_urls" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-crawler.spiders.class">
+<span id="crawler-spiders-class-module"></span><h2>crawler.spiders.class module<a class="headerlink" href="#module-crawler.spiders.class" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="crawler.spiders.class.Class">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">crawler.spiders.class.</span></span><span class="sig-name descname"><span class="pre">Class</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/class.html#Class"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.class.Class" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Spider</span></code></p>
+<p>A Scrapy spider for scraping data from the Class website.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>name (str): The name of the spider.
+start_urls (list): The list of URLs to start crawling from.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.class.Class.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Class'</span></em><a class="headerlink" href="#crawler.spiders.class.Class.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.class.Class.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/class.html#Class.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.class.Class.parse" title="Permalink to this definition"></a></dt>
+<dd><p>Parse the initial response and start scraping the data.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>response (scrapy.http.Response): The response received from the start_urls.</p>
+</dd>
+<dt>Returns:</dt><dd><p>generator: A generator yielding scraped items.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.class.Class.scrape_item">
+<span class="sig-name descname"><span class="pre">scrape_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/class.html#Class.scrape_item"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.class.Class.scrape_item" title="Permalink to this definition"></a></dt>
+<dd><p>Scrape data from an individual item.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>response (scrapy.http.Response): The response received from following an item link.</p>
+</dd>
+<dt>Returns:</dt><dd><p>generator: A generator yielding scraped items.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.class.Class.start_urls">
+<span class="sig-name descname"><span class="pre">start_urls</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['https://www.classiasi.ro/']</span></em><a class="headerlink" href="#crawler.spiders.class.Class.start_urls" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-crawler.spiders.cuptorulmoldovencei">
+<span id="crawler-spiders-cuptorulmoldovencei-module"></span><h2>crawler.spiders.cuptorulmoldovencei module<a class="headerlink" href="#module-crawler.spiders.cuptorulmoldovencei" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="crawler.spiders.cuptorulmoldovencei.CuptorulMoldovencei">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">crawler.spiders.cuptorulmoldovencei.</span></span><span class="sig-name descname"><span class="pre">CuptorulMoldovencei</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/cuptorulmoldovencei.html#CuptorulMoldovencei"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.cuptorulmoldovencei.CuptorulMoldovencei" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Spider</span></code></p>
+<p>A Scrapy spider for scraping data from the Cuptorul Moldovencei website.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>name (str): The name of the spider.
+start_urls (list): The list of URLs to start crawling from.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.cuptorulmoldovencei.CuptorulMoldovencei.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'CuptorulMoldovencei'</span></em><a class="headerlink" href="#crawler.spiders.cuptorulmoldovencei.CuptorulMoldovencei.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.cuptorulmoldovencei.CuptorulMoldovencei.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/cuptorulmoldovencei.html#CuptorulMoldovencei.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.cuptorulmoldovencei.CuptorulMoldovencei.parse" title="Permalink to this definition"></a></dt>
+<dd><p>Parse the initial response and start scraping the data.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>response (scrapy.http.Response): The response received from the start_urls.</p>
+</dd>
+<dt>Returns:</dt><dd><p>generator: A generator yielding scraped items.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.cuptorulmoldovencei.CuptorulMoldovencei.scrape_item">
+<span class="sig-name descname"><span class="pre">scrape_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/cuptorulmoldovencei.html#CuptorulMoldovencei.scrape_item"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.cuptorulmoldovencei.CuptorulMoldovencei.scrape_item" title="Permalink to this definition"></a></dt>
+<dd><p>Scrape data from an individual item.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>response (scrapy.http.Response): The response received from following an item link.</p>
+</dd>
+<dt>Returns:</dt><dd><p>generator: A generator yielding scraped items.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.cuptorulmoldovencei.CuptorulMoldovencei.start_urls">
+<span class="sig-name descname"><span class="pre">start_urls</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['https://cuptorulmoldovencei.ro/shop-online/']</span></em><a class="headerlink" href="#crawler.spiders.cuptorulmoldovencei.CuptorulMoldovencei.start_urls" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-crawler.spiders.fireribs">
+<span id="crawler-spiders-fireribs-module"></span><h2>crawler.spiders.fireribs module<a class="headerlink" href="#module-crawler.spiders.fireribs" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="crawler.spiders.fireribs.FireRibs">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">crawler.spiders.fireribs.</span></span><span class="sig-name descname"><span class="pre">FireRibs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/fireribs.html#FireRibs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.fireribs.FireRibs" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Spider</span></code></p>
+<p>A Scrapy spider for scraping data from the Fire Ribs website.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>name (str): The name of the spider.
+start_urls (list): The list of URLs to start crawling from.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.fireribs.FireRibs.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'FireRibs'</span></em><a class="headerlink" href="#crawler.spiders.fireribs.FireRibs.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.fireribs.FireRibs.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/fireribs.html#FireRibs.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.fireribs.FireRibs.parse" title="Permalink to this definition"></a></dt>
+<dd><p>Parse the initial response and start scraping the data.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>response (scrapy.http.Response): The response received from the start_urls.</p>
+</dd>
+<dt>Returns:</dt><dd><p>generator: A generator yielding scraped items.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.fireribs.FireRibs.scrape_category">
+<span class="sig-name descname"><span class="pre">scrape_category</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/fireribs.html#FireRibs.scrape_category"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.fireribs.FireRibs.scrape_category" title="Permalink to this definition"></a></dt>
+<dd><p>Scrape data from a specific category page.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>response (scrapy.http.Response): The response received from following a category page link.
+category (str): The category of the products.</p>
+</dd>
+<dt>Returns:</dt><dd><p>generator: A generator yielding scraped items.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.fireribs.FireRibs.scrape_item">
+<span class="sig-name descname"><span class="pre">scrape_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/fireribs.html#FireRibs.scrape_item"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.fireribs.FireRibs.scrape_item" title="Permalink to this definition"></a></dt>
+<dd><p>Scrape data from an individual item.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>response (scrapy.http.Response): The response received from following an item link.
+category (str): The category of the product.</p>
+</dd>
+<dt>Returns:</dt><dd><p>generator: A generator yielding scraped items.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.fireribs.FireRibs.start_urls">
+<span class="sig-name descname"><span class="pre">start_urls</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['https://fire-ribs.ro/meniu/']</span></em><a class="headerlink" href="#crawler.spiders.fireribs.FireRibs.start_urls" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-crawler.spiders.glovo">
+<span id="crawler-spiders-glovo-module"></span><h2>crawler.spiders.glovo module<a class="headerlink" href="#module-crawler.spiders.glovo" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="crawler.spiders.glovo.Glovo">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">crawler.spiders.glovo.</span></span><span class="sig-name descname"><span class="pre">Glovo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/glovo.html#Glovo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.glovo.Glovo" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Spider</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.glovo.Glovo.get_product_image">
+<span class="sig-name descname"><span class="pre">get_product_image</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">selector</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">product</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/glovo.html#Glovo.get_product_image"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.glovo.Glovo.get_product_image" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.glovo.Glovo.high_res_images">
+<span class="sig-name descname"><span class="pre">high_res_images</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://res.cloudinary.com/glovoapp/w_600,f_auto,q_auto/Products/'</span></em><a class="headerlink" href="#crawler.spiders.glovo.Glovo.high_res_images" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.glovo.Glovo.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Glovo'</span></em><a class="headerlink" href="#crawler.spiders.glovo.Glovo.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.glovo.Glovo.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">HtmlResponse</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/glovo.html#Glovo.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.glovo.Glovo.parse" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.glovo.Glovo.parse_carousel_restaurant_subpages">
+<span class="sig-name descname"><span class="pre">parse_carousel_restaurant_subpages</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/glovo.html#Glovo.parse_carousel_restaurant_subpages"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.glovo.Glovo.parse_carousel_restaurant_subpages" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.glovo.Glovo.parse_page_of_restaurant">
+<span class="sig-name descname"><span class="pre">parse_page_of_restaurant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">selectors</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/glovo.html#Glovo.parse_page_of_restaurant"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.glovo.Glovo.parse_page_of_restaurant" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.glovo.Glovo.parse_restaurant">
+<span class="sig-name descname"><span class="pre">parse_restaurant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/glovo.html#Glovo.parse_restaurant"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.glovo.Glovo.parse_restaurant" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.glovo.Glovo.start_requests">
+<span class="sig-name descname"><span class="pre">start_requests</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/glovo.html#Glovo.start_requests"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.glovo.Glovo.start_requests" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.glovo.Glovo.start_urls">
+<span class="sig-name descname"><span class="pre">start_urls</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['https://glovoapp.com/ro/en/iasi/restaurants_1/']</span></em><a class="headerlink" href="#crawler.spiders.glovo.Glovo.start_urls" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-crawler.spiders.kraft">
+<span id="crawler-spiders-kraft-module"></span><h2>crawler.spiders.kraft module<a class="headerlink" href="#module-crawler.spiders.kraft" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="crawler.spiders.kraft.KraftSpider">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">crawler.spiders.kraft.</span></span><span class="sig-name descname"><span class="pre">KraftSpider</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/kraft.html#KraftSpider"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.kraft.KraftSpider" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Spider</span></code></p>
+<p>Spider for scraping product information from ‘<a class="reference external" href="https://kraftpub2.com/index.php?dispatch=products.search&amp;search_performed=Y">https://kraftpub2.com/index.php?dispatch=products.search&amp;search_performed=Y</a>’.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.kraft.KraftSpider.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Kraft'</span></em><a class="headerlink" href="#crawler.spiders.kraft.KraftSpider.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.kraft.KraftSpider.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/kraft.html#KraftSpider.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.kraft.KraftSpider.parse" title="Permalink to this definition"></a></dt>
+<dd><p>Parses the initial response and extracts product pages and the link to the next page.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>response (scrapy.http.Response): The response received from the start URL.</p>
+</dd>
+<dt>Yields:</dt><dd><p>scrapy.Request: A request to scrape each product page.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.kraft.KraftSpider.scrape_item">
+<span class="sig-name descname"><span class="pre">scrape_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/kraft.html#KraftSpider.scrape_item"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.kraft.KraftSpider.scrape_item" title="Permalink to this definition"></a></dt>
+<dd><p>Parses the product page and extracts relevant information.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>response (scrapy.http.Response): The response received from a product page.</p>
+</dd>
+<dt>Yields:</dt><dd><p>dict: The scraped product item.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.kraft.KraftSpider.start_urls">
+<span class="sig-name descname"><span class="pre">start_urls</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['https://kraftpub2.com/index.php?dispatch=products.search&amp;search_performed=Y']</span></em><a class="headerlink" href="#crawler.spiders.kraft.KraftSpider.start_urls" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-crawler.spiders.krud">
+<span id="crawler-spiders-krud-module"></span><h2>crawler.spiders.krud module<a class="headerlink" href="#module-crawler.spiders.krud" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="crawler.spiders.krud.KrudSpider">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">crawler.spiders.krud.</span></span><span class="sig-name descname"><span class="pre">KrudSpider</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/krud.html#KrudSpider"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.krud.KrudSpider" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Spider</span></code></p>
+<p>Spider for scraping product information from ‘<a class="reference external" href="https://www.krud.ro/meniu/">https://www.krud.ro/meniu/</a>’.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.krud.KrudSpider.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Krud'</span></em><a class="headerlink" href="#crawler.spiders.krud.KrudSpider.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.krud.KrudSpider.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/krud.html#KrudSpider.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.krud.KrudSpider.parse" title="Permalink to this definition"></a></dt>
+<dd><p>Parses the response and extracts product information.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>response (scrapy.http.Response): The response received from the start URL.</p>
+</dd>
+<dt>Yields:</dt><dd><p>dict: The scraped product item.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.krud.KrudSpider.scrape_item">
+<span class="sig-name descname"><span class="pre">scrape_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">product</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/krud.html#KrudSpider.scrape_item"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.krud.KrudSpider.scrape_item" title="Permalink to this definition"></a></dt>
+<dd><p>Extracts relevant information from a product and returns a scraped item.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>product (str): HTML content of a single product item.</p>
+</dd>
+<dt>Returns:</dt><dd><p>dict: The scraped product item.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.krud.KrudSpider.start_urls">
+<span class="sig-name descname"><span class="pre">start_urls</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['https://www.krud.ro/meniu/']</span></em><a class="headerlink" href="#crawler.spiders.krud.KrudSpider.start_urls" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-crawler.spiders.mammamia">
+<span id="crawler-spiders-mammamia-module"></span><h2>crawler.spiders.mammamia module<a class="headerlink" href="#module-crawler.spiders.mammamia" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="crawler.spiders.mammamia.MammaMia">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">crawler.spiders.mammamia.</span></span><span class="sig-name descname"><span class="pre">MammaMia</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/mammamia.html#MammaMia"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.mammamia.MammaMia" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Spider</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.mammamia.MammaMia.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'MammaMia'</span></em><a class="headerlink" href="#crawler.spiders.mammamia.MammaMia.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.mammamia.MammaMia.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">HtmlResponse</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/mammamia.html#MammaMia.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.mammamia.MammaMia.parse" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.mammamia.MammaMia.start_requests">
+<span class="sig-name descname"><span class="pre">start_requests</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/mammamia.html#MammaMia.start_requests"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.mammamia.MammaMia.start_requests" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.mammamia.MammaMia.start_urls">
+<span class="sig-name descname"><span class="pre">start_urls</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['https://www.mammamia.ro/menu']</span></em><a class="headerlink" href="#crawler.spiders.mammamia.MammaMia.start_urls" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-crawler.spiders.odeon">
+<span id="crawler-spiders-odeon-module"></span><h2>crawler.spiders.odeon module<a class="headerlink" href="#module-crawler.spiders.odeon" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="crawler.spiders.odeon.OdeonSpider">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">crawler.spiders.odeon.</span></span><span class="sig-name descname"><span class="pre">OdeonSpider</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/odeon.html#OdeonSpider"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.odeon.OdeonSpider" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Spider</span></code></p>
+<p>Spider for scraping product information from ‘<a class="reference external" href="https://www.restaurantodeon.ro/magazin/">https://www.restaurantodeon.ro/magazin/</a>’.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.odeon.OdeonSpider.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Odeon'</span></em><a class="headerlink" href="#crawler.spiders.odeon.OdeonSpider.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.odeon.OdeonSpider.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/odeon.html#OdeonSpider.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.odeon.OdeonSpider.parse" title="Permalink to this definition"></a></dt>
+<dd><p>Parses the response and extracts product pages and the link to the next page.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>response (scrapy.http.Response): The response received from the start URL.</p>
+</dd>
+<dt>Yields:</dt><dd><p>scrapy.Request: A request to scrape each product page.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.odeon.OdeonSpider.scrape_item">
+<span class="sig-name descname"><span class="pre">scrape_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/odeon.html#OdeonSpider.scrape_item"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.odeon.OdeonSpider.scrape_item" title="Permalink to this definition"></a></dt>
+<dd><p>Parses a product page and extracts relevant information.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>response (scrapy.http.Response): The response received from a product page.</p>
+</dd>
+<dt>Yields:</dt><dd><p>dict: The scraped product item.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.odeon.OdeonSpider.start_urls">
+<span class="sig-name descname"><span class="pre">start_urls</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['https://www.restaurantodeon.ro/magazin/']</span></em><a class="headerlink" href="#crawler.spiders.odeon.OdeonSpider.start_urls" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-crawler.spiders.pizzasmile">
+<span id="crawler-spiders-pizzasmile-module"></span><h2>crawler.spiders.pizzasmile module<a class="headerlink" href="#module-crawler.spiders.pizzasmile" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="crawler.spiders.pizzasmile.PizzaSmileSpider">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">crawler.spiders.pizzasmile.</span></span><span class="sig-name descname"><span class="pre">PizzaSmileSpider</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/pizzasmile.html#PizzaSmileSpider"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.pizzasmile.PizzaSmileSpider" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Spider</span></code></p>
+<p>Spider for scraping product information from ‘<a class="reference external" href="https://smilepizzadelivery.ro/delivery/">https://smilepizzadelivery.ro/delivery/</a>’.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.pizzasmile.PizzaSmileSpider.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PizzaSmile'</span></em><a class="headerlink" href="#crawler.spiders.pizzasmile.PizzaSmileSpider.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.pizzasmile.PizzaSmileSpider.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/pizzasmile.html#PizzaSmileSpider.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.pizzasmile.PizzaSmileSpider.parse" title="Permalink to this definition"></a></dt>
+<dd><p>Parses the response and extracts product pages and the link to the next page.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>response (scrapy.http.Response): The response received from the start URL.</p>
+</dd>
+<dt>Yields:</dt><dd><p>scrapy.Request: A request to scrape each product page.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.pizzasmile.PizzaSmileSpider.scrape_item">
+<span class="sig-name descname"><span class="pre">scrape_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/pizzasmile.html#PizzaSmileSpider.scrape_item"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.pizzasmile.PizzaSmileSpider.scrape_item" title="Permalink to this definition"></a></dt>
+<dd><p>Parses a product page and extracts relevant information.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>response (scrapy.http.Response): The response received from a product page.</p>
+</dd>
+<dt>Yields:</dt><dd><p>dict: The scraped product item.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.pizzasmile.PizzaSmileSpider.start_urls">
+<span class="sig-name descname"><span class="pre">start_urls</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['https://smilepizzadelivery.ro/delivery/']</span></em><a class="headerlink" href="#crawler.spiders.pizzasmile.PizzaSmileSpider.start_urls" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-crawler.spiders.rigatoni">
+<span id="crawler-spiders-rigatoni-module"></span><h2>crawler.spiders.rigatoni module<a class="headerlink" href="#module-crawler.spiders.rigatoni" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="crawler.spiders.rigatoni.RigatoniSpider">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">crawler.spiders.rigatoni.</span></span><span class="sig-name descname"><span class="pre">RigatoniSpider</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/rigatoni.html#RigatoniSpider"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.rigatoni.RigatoniSpider" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Spider</span></code></p>
+<p>Spider for scraping product information from ‘<a class="reference external" href="https://rigatoni.ro/iasi/">https://rigatoni.ro/iasi/</a>’.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.rigatoni.RigatoniSpider.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Rigatoni'</span></em><a class="headerlink" href="#crawler.spiders.rigatoni.RigatoniSpider.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.rigatoni.RigatoniSpider.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/rigatoni.html#RigatoniSpider.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.rigatoni.RigatoniSpider.parse" title="Permalink to this definition"></a></dt>
+<dd><p>Parses the response and extracts product category pages.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>response (scrapy.http.Response): The response received from the start URL.</p>
+</dd>
+<dt>Yields:</dt><dd><p>scrapy.Request: A request to scrape each product category page.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.rigatoni.RigatoniSpider.scrape_item">
+<span class="sig-name descname"><span class="pre">scrape_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/rigatoni.html#RigatoniSpider.scrape_item"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.rigatoni.RigatoniSpider.scrape_item" title="Permalink to this definition"></a></dt>
+<dd><p>Parses a product page and extracts relevant information.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>response (scrapy.http.Response): The response received from a product page.</p>
+</dd>
+<dt>Yields:</dt><dd><p>dict: The scraped product item.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.rigatoni.RigatoniSpider.scrape_page">
+<span class="sig-name descname"><span class="pre">scrape_page</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/rigatoni.html#RigatoniSpider.scrape_page"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.rigatoni.RigatoniSpider.scrape_page" title="Permalink to this definition"></a></dt>
+<dd><p>Parses a product category page and extracts product pages.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>response (scrapy.http.Response): The response received from a product category page.</p>
+</dd>
+<dt>Yields:</dt><dd><p>scrapy.Request: A request to scrape each product page.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.rigatoni.RigatoniSpider.start_urls">
+<span class="sig-name descname"><span class="pre">start_urls</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['https://rigatoni.ro/iasi/']</span></em><a class="headerlink" href="#crawler.spiders.rigatoni.RigatoniSpider.start_urls" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-crawler.spiders.sushimaster">
+<span id="crawler-spiders-sushimaster-module"></span><h2>crawler.spiders.sushimaster module<a class="headerlink" href="#module-crawler.spiders.sushimaster" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="crawler.spiders.sushimaster.SushiMasterSpider">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">crawler.spiders.sushimaster.</span></span><span class="sig-name descname"><span class="pre">SushiMasterSpider</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/sushimaster.html#SushiMasterSpider"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.sushimaster.SushiMasterSpider" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Spider</span></code></p>
+<p>Spider for scraping product information from ‘<a class="reference external" href="https://sushimaster.ro/">https://sushimaster.ro/</a>’.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.sushimaster.SushiMasterSpider.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SushiMaster'</span></em><a class="headerlink" href="#crawler.spiders.sushimaster.SushiMasterSpider.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.sushimaster.SushiMasterSpider.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/sushimaster.html#SushiMasterSpider.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.sushimaster.SushiMasterSpider.parse" title="Permalink to this definition"></a></dt>
+<dd><p>Parses the response and extracts category IDs and corresponding categories.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>response (scrapy.http.Response): The response received from the start URL.</p>
+</dd>
+<dt>Yields:</dt><dd><p>scrapy.Request: A request to scrape each category page.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.sushimaster.SushiMasterSpider.scrape_page">
+<span class="sig-name descname"><span class="pre">scrape_page</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/sushimaster.html#SushiMasterSpider.scrape_page"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.sushimaster.SushiMasterSpider.scrape_page" title="Permalink to this definition"></a></dt>
+<dd><p>Parses a category page and extracts product information.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>response (scrapy.http.Response): The response received from a category page.
+category (str): The category of the products.</p>
+</dd>
+<dt>Yields:</dt><dd><p>dict: The scraped product item.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.sushimaster.SushiMasterSpider.start_urls">
+<span class="sig-name descname"><span class="pre">start_urls</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['https://sushimaster.ro/']</span></em><a class="headerlink" href="#crawler.spiders.sushimaster.SushiMasterSpider.start_urls" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-crawler.spiders.tazz">
+<span id="crawler-spiders-tazz-module"></span><h2>crawler.spiders.tazz module<a class="headerlink" href="#module-crawler.spiders.tazz" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="crawler.spiders.tazz.Tazz">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">crawler.spiders.tazz.</span></span><span class="sig-name descname"><span class="pre">Tazz</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/tazz.html#Tazz"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.tazz.Tazz" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Spider</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.tazz.Tazz.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Tazz'</span></em><a class="headerlink" href="#crawler.spiders.tazz.Tazz.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.tazz.Tazz.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/tazz.html#Tazz.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.tazz.Tazz.parse" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.tazz.Tazz.process_images">
+<span class="sig-name descname"><span class="pre">process_images</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/tazz.html#Tazz.process_images"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.tazz.Tazz.process_images" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.tazz.Tazz.process_prices">
+<span class="sig-name descname"><span class="pre">process_prices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/tazz.html#Tazz.process_prices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.tazz.Tazz.process_prices" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.tazz.Tazz.scrape_restaurant">
+<span class="sig-name descname"><span class="pre">scrape_restaurant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/tazz.html#Tazz.scrape_restaurant"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.tazz.Tazz.scrape_restaurant" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.tazz.Tazz.start_urls">
+<span class="sig-name descname"><span class="pre">start_urls</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['https://tazz.ro/iasi/restaurante']</span></em><a class="headerlink" href="#crawler.spiders.tazz.Tazz.start_urls" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-crawler.spiders.veranda">
+<span id="crawler-spiders-veranda-module"></span><h2>crawler.spiders.veranda module<a class="headerlink" href="#module-crawler.spiders.veranda" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="crawler.spiders.veranda.VerandaSpider">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">crawler.spiders.veranda.</span></span><span class="sig-name descname"><span class="pre">VerandaSpider</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/veranda.html#VerandaSpider"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.veranda.VerandaSpider" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Spider</span></code></p>
+<p>Spider for scraping product information from ‘<a class="reference external" href="https://verandarestaurant.ro/">https://verandarestaurant.ro/</a>’.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.veranda.VerandaSpider.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Veranda'</span></em><a class="headerlink" href="#crawler.spiders.veranda.VerandaSpider.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.veranda.VerandaSpider.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/veranda.html#VerandaSpider.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.veranda.VerandaSpider.parse" title="Permalink to this definition"></a></dt>
+<dd><p>Parses the response and extracts category links and names.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>response (scrapy.http.Response): The response received from the start URL.</p>
+</dd>
+<dt>Yields:</dt><dd><p>scrapy.Request: A request to scrape each category page.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.veranda.VerandaSpider.parse_category">
+<span class="sig-name descname"><span class="pre">parse_category</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/veranda.html#VerandaSpider.parse_category"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.veranda.VerandaSpider.parse_category" title="Permalink to this definition"></a></dt>
+<dd><p>Parses a category page and extracts product links.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>response (scrapy.http.Response): The response received from a category page.
+category (str): The category of the products.</p>
+</dd>
+<dt>Yields:</dt><dd><p>scrapy.Request: A request to scrape each product page.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.veranda.VerandaSpider.parse_product">
+<span class="sig-name descname"><span class="pre">parse_product</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/veranda.html#VerandaSpider.parse_product"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.veranda.VerandaSpider.parse_product" title="Permalink to this definition"></a></dt>
+<dd><p>Parses a product page and extracts product information.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>response (scrapy.http.Response): The response received from a product page.
+category (str): The category of the product.</p>
+</dd>
+<dt>Yields:</dt><dd><p>dict: The scraped product item.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.veranda.VerandaSpider.start_urls">
+<span class="sig-name descname"><span class="pre">start_urls</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['https://verandarestaurant.ro/']</span></em><a class="headerlink" href="#crawler.spiders.veranda.VerandaSpider.start_urls" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-crawler.spiders.vivo">
+<span id="crawler-spiders-vivo-module"></span><h2>crawler.spiders.vivo module<a class="headerlink" href="#module-crawler.spiders.vivo" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="crawler.spiders.vivo.Vivo">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">crawler.spiders.vivo.</span></span><span class="sig-name descname"><span class="pre">Vivo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/vivo.html#Vivo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.vivo.Vivo" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Spider</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.vivo.Vivo.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Vivo'</span></em><a class="headerlink" href="#crawler.spiders.vivo.Vivo.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.vivo.Vivo.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">response</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/vivo.html#Vivo.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.vivo.Vivo.parse" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.spiders.vivo.Vivo.scrape_item">
+<span class="sig-name descname"><span class="pre">scrape_item</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">selector</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/spiders/vivo.html#Vivo.scrape_item"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.spiders.vivo.Vivo.scrape_item" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.spiders.vivo.Vivo.start_urls">
+<span class="sig-name descname"><span class="pre">start_urls</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['https://www.foodbooking.com/ordering/restaurant/menu?restaurant_uid=7254b63a-69e7-462d-be57-0b2505ab14a6']</span></em><a class="headerlink" href="#crawler.spiders.vivo.Vivo.start_urls" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-crawler.spiders">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-crawler.spiders" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="crawler.html" class="btn btn-neutral float-left" title="crawler package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="main.html" class="btn btn-neutral float-right" title="main module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Crawler-Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

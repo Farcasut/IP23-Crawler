@@ -1,0 +1,42 @@
+.. Crawler Documentation documentation master file, created by
+   sphinx-quickstart on Sun May 28 16:06:12 2023.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to Crawler Documentation's documentation!
+=================================================
+Introduction
+
+The application aims to provide a platform for browsing restaurant offers in the user’s current location. It will utilize data from various Food Delivery applications such as Tazz, Glovo, as well as official restaurant webpages. The app’s primary purpose is to recommend the best offers based on various discounts, delivery fees and operational costs.
+
+The crawler team has a key role in this application’s functionality, specifically in extracting and updating the prices of products from various restaurants. Their responsibility lies in ensuring that the platform provides accurate and up-to-date pricing information to users. The team gathered pricing data from the multiple sources mentioned above, monitored and constantly updated it, thus contributing to the applications ability to recommend the best offers.
+
+
+
+Tools
+
+	Scrapy
+	Scrapy is an open-source and collaborative “fast high-level” Python framework used for web scraping and crawling. It provides a collection of tools and libraries and facilitates the extraction of data from websites, making the process easier and more convenient, in an efficient, scalable and flexible manner.
+It follows a spider-based approach, where you define a spider that defines how to navigate a website, what to extract, and how to store it. A spider is a Python class that you create and customize according to specific restaurants. For data extraction it supports both XPath and CSS selectors. Scrapy pipelines allow you to define the processing steps for the extracted data (modify, validate and store the data in various formats).
+For more information: https://docs.scrapy.org/en/latest/
+
+
+
+	Selenium
+	Selenium is an open-source framework that allows you to automate web browsers through the use of WebDriver. The provided libraries for interacting with web elements make actions like clicking buttons, filling forms, and submitting data possible. Selenium is primarily used for web testing and automation, but can also be used for web scraping.
+	It supports multiple web browsers, allowing you to write code that works across different browsers without many changes, it provides methods to interact with various web elements such as dropdown options, separate menus, different popups, windows and so on.
+	For more information: https://www.selenium.dev/documentation/ and https://selenium-python.readthedocs.io/
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   modules
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
