@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to Crawler Documentation’s documentation! &mdash; Crawler 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="src" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            Crawler
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">src</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Crawler</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Welcome to Crawler Documentation’s documentation!</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="welcome-to-crawler-documentation-s-documentation">
+<h1>Welcome to Crawler Documentation’s documentation!<a class="headerlink" href="#welcome-to-crawler-documentation-s-documentation" title="Permalink to this heading"></a></h1>
+<p>Introduction</p>
+<p>The application aims to provide a platform for browsing restaurant offers in the user’s current location. It will utilize data from various Food Delivery applications such as Tazz, Glovo, as well as official restaurant webpages. The app’s primary purpose is to recommend the best offers based on various discounts, delivery fees and operational costs.</p>
+<p>The crawler team has a key role in this application’s functionality, specifically in extracting and updating the prices of products from various restaurants. Their responsibility lies in ensuring that the platform provides accurate and up-to-date pricing information to users. The team gathered pricing data from the multiple sources mentioned above, monitored and constantly updated it, thus contributing to the applications ability to recommend the best offers.</p>
+<p>Tools</p>
+<blockquote>
+<div><p>Scrapy
+Scrapy is an open-source and collaborative “fast high-level” Python framework used for web scraping and crawling. It provides a collection of tools and libraries and facilitates the extraction of data from websites, making the process easier and more convenient, in an efficient, scalable and flexible manner.</p>
+</div></blockquote>
+<p>It follows a spider-based approach, where you define a spider that defines how to navigate a website, what to extract, and how to store it. A spider is a Python class that you create and customize according to specific restaurants. For data extraction it supports both XPath and CSS selectors. Scrapy pipelines allow you to define the processing steps for the extracted data (modify, validate and store the data in various formats).
+For more information: <a class="reference external" href="https://docs.scrapy.org/en/latest/">https://docs.scrapy.org/en/latest/</a></p>
+<blockquote>
+<div><p>Selenium
+Selenium is an open-source framework that allows you to automate web browsers through the use of WebDriver. The provided libraries for interacting with web elements make actions like clicking buttons, filling forms, and submitting data possible. Selenium is primarily used for web testing and automation, but can also be used for web scraping.
+It supports multiple web browsers, allowing you to write code that works across different browsers without many changes, it provides methods to interact with various web elements such as dropdown options, separate menus, different popups, windows and so on.
+For more information: <a class="reference external" href="https://www.selenium.dev/documentation/">https://www.selenium.dev/documentation/</a> and <a class="reference external" href="https://selenium-python.readthedocs.io/">https://selenium-python.readthedocs.io/</a></p>
+</div></blockquote>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">src</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="crawler.html">crawler package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading"></a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-right" title="src" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Crawler-Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>main &mdash; Crawler 1.0.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Crawler
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">src</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Crawler</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">main</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for main</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">multiprocessing</span>
+<span class="kn">from</span> <span class="nn">scrapy.crawler</span> <span class="kn">import</span> <span class="n">CrawlerProcess</span>
+<span class="kn">from</span> <span class="nn">scrapy.utils.project</span> <span class="kn">import</span> <span class="n">get_project_settings</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">Introduction</span>
+
+<span class="sd">The application aims to provide a platform for browsing restaurant offers in the user’s current location. It will utilize data from various Food Delivery applications such as Tazz, Glovo, as well as official restaurant webpages. The app’s primary purpose is to recommend the best offers based on various discounts, delivery fees and operational costs.</span>
+
+<span class="sd">The crawler team has a key role in this application’s functionality, specifically in extracting and updating the prices of products from various restaurants. Their responsibility lies in ensuring that the platform provides accurate and up-to-date pricing information to users. The team gathered pricing data from the multiple sources mentioned above, monitored and constantly updated it, thus contributing to the applications ability to recommend the best offers.</span>
+
+
+
+<span class="sd">Tools</span>
+
+<span class="sd">	Scrapy</span>
+<span class="sd">	Scrapy is an open-source and collaborative “fast high-level” Python framework used for web scraping and crawling. It provides a collection of tools and libraries and facilitates the extraction of data from websites, making the process easier and more convenient, in an efficient, scalable and flexible manner.</span>
+<span class="sd">It follows a spider-based approach, where you define a spider that defines how to navigate a website, what to extract, and how to store it. A spider is a Python class that you create and customize according to specific restaurants. For data extraction it supports both XPath and CSS selectors. Scrapy pipelines allow you to define the processing steps for the extracted data (modify, validate and store the data in various formats).</span>
+<span class="sd">For more information: https://docs.scrapy.org/en/latest/</span>
+
+
+
+<span class="sd">	Selenium</span>
+<span class="sd">	Selenium is an open-source framework that allows you to automate web browsers through the use of WebDriver. The provided libraries for interacting with web elements make actions like clicking buttons, filling forms, and submitting data possible. Selenium is primarily used for web testing and automation, but can also be used for web scraping.</span>
+<span class="sd">	It supports multiple web browsers, allowing you to write code that works across different browsers without many changes, it provides methods to interact with various web elements such as dropdown options, separate menus, different popups, windows and so on.</span>
+<span class="sd">	For more information: https://www.selenium.dev/documentation/ and https://selenium-python.readthedocs.io/</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<div class="viewcode-block" id="main"><a class="viewcode-back" href="../main.html#main.main">[docs]</a><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">p1</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">task1</span><span class="p">)</span>
+    <span class="n">p1</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="n">p1</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+    <span class="n">p2</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">task2</span><span class="p">)</span>
+    <span class="n">p2</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="n">p2</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+    <span class="n">p3</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">task3</span><span class="p">)</span>
+    <span class="n">p3</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="n">p3</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+    <span class="n">p4</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">task4</span><span class="p">)</span>
+    <span class="n">p4</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="n">p4</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+    <span class="n">p5</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">task5</span><span class="p">)</span>
+    <span class="n">p5</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="n">p5</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+    <span class="n">p6</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">task6</span><span class="p">)</span>
+    <span class="n">p6</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="n">p6</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+    <span class="n">p7</span> <span class="o">=</span> <span class="n">multiprocessing</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">images</span><span class="p">)</span>
+    <span class="n">p7</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="n">p7</span><span class="o">.</span><span class="n">join</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="task1"><a class="viewcode-back" href="../main.html#main.task1">[docs]</a><span class="k">def</span> <span class="nf">task1</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;task1: starting&quot;</span><span class="p">)</span>
+    <span class="n">settings</span> <span class="o">=</span> <span class="n">get_project_settings</span><span class="p">()</span>
+    <span class="n">process</span> <span class="o">=</span> <span class="n">CrawlerProcess</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+    <span class="n">process</span><span class="o">.</span><span class="n">crawl</span><span class="p">(</span><span class="s2">&quot;PizzaSmile&quot;</span><span class="p">)</span>
+    <span class="n">process</span><span class="o">.</span><span class="n">crawl</span><span class="p">(</span><span class="s1">&#39;CuptorulMoldovencei&#39;</span><span class="p">)</span>
+    <span class="n">process</span><span class="o">.</span><span class="n">crawl</span><span class="p">(</span><span class="s1">&#39;SushiMaster&#39;</span><span class="p">)</span>
+    <span class="n">process</span><span class="o">.</span><span class="n">crawl</span><span class="p">(</span><span class="s1">&#39;FireRibs&#39;</span><span class="p">)</span>
+    <span class="n">process</span><span class="o">.</span><span class="n">crawl</span><span class="p">(</span><span class="s1">&#39;Veranda&#39;</span><span class="p">)</span>
+
+    <span class="n">process</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;task1: done&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="task2"><a class="viewcode-back" href="../main.html#main.task2">[docs]</a><span class="k">def</span> <span class="nf">task2</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;task2: starting&quot;</span><span class="p">)</span>
+    <span class="n">settings</span> <span class="o">=</span> <span class="n">get_project_settings</span><span class="p">()</span>
+    <span class="n">process</span> <span class="o">=</span> <span class="n">CrawlerProcess</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+    <span class="n">process</span><span class="o">.</span><span class="n">crawl</span><span class="p">(</span><span class="s1">&#39;Krud&#39;</span><span class="p">)</span>
+    <span class="n">process</span><span class="o">.</span><span class="n">crawl</span><span class="p">(</span><span class="s1">&#39;Odeon&#39;</span><span class="p">)</span>
+    <span class="n">process</span><span class="o">.</span><span class="n">crawl</span><span class="p">(</span><span class="s1">&#39;Kraft&#39;</span><span class="p">)</span>
+    <span class="n">process</span><span class="o">.</span><span class="n">crawl</span><span class="p">(</span><span class="s1">&#39;Bavaria&#39;</span><span class="p">)</span>
+
+    <span class="n">process</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;task2: done&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="task3"><a class="viewcode-back" href="../main.html#main.task3">[docs]</a><span class="k">def</span> <span class="nf">task3</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;task3: starting&quot;</span><span class="p">)</span>
+    <span class="n">settings</span> <span class="o">=</span> <span class="n">get_project_settings</span><span class="p">()</span>
+    <span class="n">process</span> <span class="o">=</span> <span class="n">CrawlerProcess</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+    <span class="n">process</span><span class="o">.</span><span class="n">crawl</span><span class="p">(</span><span class="s1">&#39;Cheffa&#39;</span><span class="p">)</span>
+    <span class="n">process</span><span class="o">.</span><span class="n">crawl</span><span class="p">(</span><span class="s1">&#39;Class&#39;</span><span class="p">)</span>
+    <span class="n">process</span><span class="o">.</span><span class="n">crawl</span><span class="p">(</span><span class="s1">&#39;BlueAcqua&#39;</span><span class="p">)</span>
+    <span class="n">process</span><span class="o">.</span><span class="n">crawl</span><span class="p">(</span><span class="s1">&#39;MoaraDeFoc&#39;</span><span class="p">)</span>
+
+    <span class="n">process</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;task3: done&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="task4"><a class="viewcode-back" href="../main.html#main.task4">[docs]</a><span class="k">def</span> <span class="nf">task4</span><span class="p">():</span>
+    <span class="n">settings</span> <span class="o">=</span> <span class="n">get_project_settings</span><span class="p">()</span>
+    <span class="n">process</span> <span class="o">=</span> <span class="n">CrawlerProcess</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;task4: starting&quot;</span><span class="p">)</span>
+    <span class="n">process</span><span class="o">.</span><span class="n">crawl</span><span class="p">(</span><span class="s1">&#39;Rigatoni&#39;</span><span class="p">)</span>
+    <span class="n">process</span><span class="o">.</span><span class="n">crawl</span><span class="p">(</span><span class="s1">&#39;Alila&#39;</span><span class="p">)</span>
+    <span class="n">process</span><span class="o">.</span><span class="n">crawl</span><span class="p">(</span><span class="s1">&#39;BuenaVista&#39;</span><span class="p">)</span>
+    <span class="n">process</span><span class="o">.</span><span class="n">crawl</span><span class="p">(</span><span class="s1">&#39;RomeoEGiulietta&#39;</span><span class="p">)</span>
+    <span class="n">process</span><span class="o">.</span><span class="n">crawl</span><span class="p">(</span><span class="s2">&quot;MammaMia&quot;</span><span class="p">)</span>
+    <span class="n">process</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;task4: done&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="task5"><a class="viewcode-back" href="../main.html#main.task5">[docs]</a><span class="k">def</span> <span class="nf">task5</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;task5: starting&quot;</span><span class="p">)</span>
+    <span class="n">settings</span> <span class="o">=</span> <span class="n">get_project_settings</span><span class="p">()</span>
+    <span class="n">process</span> <span class="o">=</span> <span class="n">CrawlerProcess</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+    <span class="n">process</span><span class="o">.</span><span class="n">crawl</span><span class="p">(</span><span class="s1">&#39;BerariaVeche&#39;</span><span class="p">)</span>
+    <span class="n">process</span><span class="o">.</span><span class="n">crawl</span><span class="p">(</span><span class="s1">&#39;Vivo&#39;</span><span class="p">)</span>
+    <span class="n">process</span><span class="o">.</span><span class="n">crawl</span><span class="p">(</span><span class="s1">&#39;CarulCuBurgeri&#39;</span><span class="p">)</span>
+    <span class="n">process</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;task5: done&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="task6"><a class="viewcode-back" href="../main.html#main.task6">[docs]</a><span class="k">def</span> <span class="nf">task6</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;task6: starting&quot;</span><span class="p">)</span>
+    <span class="n">settings</span> <span class="o">=</span> <span class="n">get_project_settings</span><span class="p">()</span>
+    <span class="n">process</span> <span class="o">=</span> <span class="n">CrawlerProcess</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+    <span class="n">process</span><span class="o">.</span><span class="n">crawl</span><span class="p">(</span><span class="s1">&#39;Oscar&#39;</span><span class="p">)</span>
+    <span class="n">process</span><span class="o">.</span><span class="n">crawl</span><span class="p">(</span><span class="s1">&#39;TikiBistro&#39;</span><span class="p">)</span>
+    <span class="n">process</span><span class="o">.</span><span class="n">crawl</span><span class="p">(</span><span class="s1">&#39;Tazz&#39;</span><span class="p">)</span>
+    <span class="n">process</span><span class="o">.</span><span class="n">crawl</span><span class="p">(</span><span class="s1">&#39;Glovo&#39;</span><span class="p">)</span>
+    <span class="n">process</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;task6: done&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="images"><a class="viewcode-back" href="../main.html#main.images">[docs]</a><span class="k">def</span> <span class="nf">images</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Downloading restaurant images&quot;</span><span class="p">)</span>
+    <span class="n">settings</span> <span class="o">=</span> <span class="n">get_project_settings</span><span class="p">()</span>
+    <span class="n">process</span> <span class="o">=</span> <span class="n">CrawlerProcess</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+    <span class="n">process</span><span class="o">.</span><span class="n">crawl</span><span class="p">(</span><span class="s1">&#39;RestaurantPhotos&#39;</span><span class="p">)</span>
+    <span class="n">process</span><span class="o">.</span><span class="n">start</span><span class="p">()</span></div>
+    
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Crawler-Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

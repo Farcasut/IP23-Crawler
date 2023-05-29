@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>crawler package &mdash; Crawler 1.0.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="crawler.spiders package" href="crawler.spiders.html" />
+    <link rel="prev" title="src" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Crawler
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">src</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">crawler package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html">crawler.spiders package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-crawler.items">crawler.items module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#crawler.items.Product"><code class="docutils literal notranslate"><span class="pre">Product</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#crawler.items.convert_to_float"><code class="docutils literal notranslate"><span class="pre">convert_to_float()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-crawler.middlewares">crawler.middlewares module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#crawler.middlewares.SeleniumMiddleware"><code class="docutils literal notranslate"><span class="pre">SeleniumMiddleware</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#crawler-pipelines-module">crawler.pipelines module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-crawler.settings">crawler.settings module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-crawler.utils">crawler.utils module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#crawler.utils.SeleniumRequest"><code class="docutils literal notranslate"><span class="pre">SeleniumRequest</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#crawler.utils.create_db_connection"><code class="docutils literal notranslate"><span class="pre">create_db_connection()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#crawler.utils.create_selenium_driver"><code class="docutils literal notranslate"><span class="pre">create_selenium_driver()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#crawler.utils.get_rid_of_special_spaces"><code class="docutils literal notranslate"><span class="pre">get_rid_of_special_spaces()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#crawler.utils.get_rid_of_special_spaces_without_strip"><code class="docutils literal notranslate"><span class="pre">get_rid_of_special_spaces_without_strip()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#crawler.utils.parse_config"><code class="docutils literal notranslate"><span class="pre">parse_config()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-crawler">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Crawler</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">src</a></li>
+      <li class="breadcrumb-item active">crawler package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/crawler.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="crawler-package">
+<h1>crawler package<a class="headerlink" href="#crawler-package" title="Permalink to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="crawler.spiders.html">crawler.spiders package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="crawler.spiders.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="crawler.spiders.html#module-crawler.spiders.alila">crawler.spiders.alila module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.alila.Alila"><code class="docutils literal notranslate"><span class="pre">Alila</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.alila.Alila.name"><code class="docutils literal notranslate"><span class="pre">Alila.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.alila.Alila.parse"><code class="docutils literal notranslate"><span class="pre">Alila.parse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.alila.Alila.scrape_item"><code class="docutils literal notranslate"><span class="pre">Alila.scrape_item()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.alila.Alila.scrape_page"><code class="docutils literal notranslate"><span class="pre">Alila.scrape_page()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.alila.Alila.start_urls"><code class="docutils literal notranslate"><span class="pre">Alila.start_urls</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="crawler.spiders.html#module-crawler.spiders.bavaria">crawler.spiders.bavaria module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.bavaria.Bavaria"><code class="docutils literal notranslate"><span class="pre">Bavaria</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.bavaria.Bavaria.name"><code class="docutils literal notranslate"><span class="pre">Bavaria.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.bavaria.Bavaria.parse"><code class="docutils literal notranslate"><span class="pre">Bavaria.parse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.bavaria.Bavaria.scrape_item"><code class="docutils literal notranslate"><span class="pre">Bavaria.scrape_item()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.bavaria.Bavaria.start_urls"><code class="docutils literal notranslate"><span class="pre">Bavaria.start_urls</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="crawler.spiders.html#module-crawler.spiders.berariaveche">crawler.spiders.berariaveche module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.berariaveche.BerariaVeche"><code class="docutils literal notranslate"><span class="pre">BerariaVeche</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.berariaveche.BerariaVeche.name"><code class="docutils literal notranslate"><span class="pre">BerariaVeche.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.berariaveche.BerariaVeche.parse"><code class="docutils literal notranslate"><span class="pre">BerariaVeche.parse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.berariaveche.BerariaVeche.scrape_item"><code class="docutils literal notranslate"><span class="pre">BerariaVeche.scrape_item()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.berariaveche.BerariaVeche.start_urls"><code class="docutils literal notranslate"><span class="pre">BerariaVeche.start_urls</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="crawler.spiders.html#module-crawler.spiders.buenavista">crawler.spiders.buenavista module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.buenavista.BuenaVista"><code class="docutils literal notranslate"><span class="pre">BuenaVista</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.buenavista.BuenaVista.name"><code class="docutils literal notranslate"><span class="pre">BuenaVista.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.buenavista.BuenaVista.parse"><code class="docutils literal notranslate"><span class="pre">BuenaVista.parse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.buenavista.BuenaVista.scrape_item"><code class="docutils literal notranslate"><span class="pre">BuenaVista.scrape_item()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.buenavista.BuenaVista.start_urls"><code class="docutils literal notranslate"><span class="pre">BuenaVista.start_urls</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="crawler.spiders.html#module-crawler.spiders.carulcuburgeri">crawler.spiders.carulcuburgeri module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.carulcuburgeri.CarulCuBurgeri"><code class="docutils literal notranslate"><span class="pre">CarulCuBurgeri</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.carulcuburgeri.CarulCuBurgeri.name"><code class="docutils literal notranslate"><span class="pre">CarulCuBurgeri.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.carulcuburgeri.CarulCuBurgeri.parse"><code class="docutils literal notranslate"><span class="pre">CarulCuBurgeri.parse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.carulcuburgeri.CarulCuBurgeri.scrape_item"><code class="docutils literal notranslate"><span class="pre">CarulCuBurgeri.scrape_item()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.carulcuburgeri.CarulCuBurgeri.scrape_page"><code class="docutils literal notranslate"><span class="pre">CarulCuBurgeri.scrape_page()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.carulcuburgeri.CarulCuBurgeri.start_urls"><code class="docutils literal notranslate"><span class="pre">CarulCuBurgeri.start_urls</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="crawler.spiders.html#module-crawler.spiders.cheffa">crawler.spiders.cheffa module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.cheffa.Cheffa"><code class="docutils literal notranslate"><span class="pre">Cheffa</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.cheffa.Cheffa.name"><code class="docutils literal notranslate"><span class="pre">Cheffa.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.cheffa.Cheffa.parse"><code class="docutils literal notranslate"><span class="pre">Cheffa.parse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.cheffa.Cheffa.scrape_item"><code class="docutils literal notranslate"><span class="pre">Cheffa.scrape_item()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.cheffa.Cheffa.scrape_page"><code class="docutils literal notranslate"><span class="pre">Cheffa.scrape_page()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.cheffa.Cheffa.start_urls"><code class="docutils literal notranslate"><span class="pre">Cheffa.start_urls</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="crawler.spiders.html#module-crawler.spiders.class">crawler.spiders.class module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.class.Class"><code class="docutils literal notranslate"><span class="pre">Class</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.class.Class.name"><code class="docutils literal notranslate"><span class="pre">Class.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.class.Class.parse"><code class="docutils literal notranslate"><span class="pre">Class.parse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.class.Class.scrape_item"><code class="docutils literal notranslate"><span class="pre">Class.scrape_item()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.class.Class.start_urls"><code class="docutils literal notranslate"><span class="pre">Class.start_urls</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="crawler.spiders.html#module-crawler.spiders.cuptorulmoldovencei">crawler.spiders.cuptorulmoldovencei module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.cuptorulmoldovencei.CuptorulMoldovencei"><code class="docutils literal notranslate"><span class="pre">CuptorulMoldovencei</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.cuptorulmoldovencei.CuptorulMoldovencei.name"><code class="docutils literal notranslate"><span class="pre">CuptorulMoldovencei.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.cuptorulmoldovencei.CuptorulMoldovencei.parse"><code class="docutils literal notranslate"><span class="pre">CuptorulMoldovencei.parse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.cuptorulmoldovencei.CuptorulMoldovencei.scrape_item"><code class="docutils literal notranslate"><span class="pre">CuptorulMoldovencei.scrape_item()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.cuptorulmoldovencei.CuptorulMoldovencei.start_urls"><code class="docutils literal notranslate"><span class="pre">CuptorulMoldovencei.start_urls</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="crawler.spiders.html#module-crawler.spiders.fireribs">crawler.spiders.fireribs module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.fireribs.FireRibs"><code class="docutils literal notranslate"><span class="pre">FireRibs</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.fireribs.FireRibs.name"><code class="docutils literal notranslate"><span class="pre">FireRibs.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.fireribs.FireRibs.parse"><code class="docutils literal notranslate"><span class="pre">FireRibs.parse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.fireribs.FireRibs.scrape_category"><code class="docutils literal notranslate"><span class="pre">FireRibs.scrape_category()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.fireribs.FireRibs.scrape_item"><code class="docutils literal notranslate"><span class="pre">FireRibs.scrape_item()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.fireribs.FireRibs.start_urls"><code class="docutils literal notranslate"><span class="pre">FireRibs.start_urls</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="crawler.spiders.html#module-crawler.spiders.glovo">crawler.spiders.glovo module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.glovo.Glovo"><code class="docutils literal notranslate"><span class="pre">Glovo</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.glovo.Glovo.get_product_image"><code class="docutils literal notranslate"><span class="pre">Glovo.get_product_image()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.glovo.Glovo.high_res_images"><code class="docutils literal notranslate"><span class="pre">Glovo.high_res_images</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.glovo.Glovo.name"><code class="docutils literal notranslate"><span class="pre">Glovo.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.glovo.Glovo.parse"><code class="docutils literal notranslate"><span class="pre">Glovo.parse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.glovo.Glovo.parse_carousel_restaurant_subpages"><code class="docutils literal notranslate"><span class="pre">Glovo.parse_carousel_restaurant_subpages()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.glovo.Glovo.parse_page_of_restaurant"><code class="docutils literal notranslate"><span class="pre">Glovo.parse_page_of_restaurant()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.glovo.Glovo.parse_restaurant"><code class="docutils literal notranslate"><span class="pre">Glovo.parse_restaurant()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.glovo.Glovo.start_requests"><code class="docutils literal notranslate"><span class="pre">Glovo.start_requests()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.glovo.Glovo.start_urls"><code class="docutils literal notranslate"><span class="pre">Glovo.start_urls</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="crawler.spiders.html#module-crawler.spiders.kraft">crawler.spiders.kraft module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.kraft.KraftSpider"><code class="docutils literal notranslate"><span class="pre">KraftSpider</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.kraft.KraftSpider.name"><code class="docutils literal notranslate"><span class="pre">KraftSpider.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.kraft.KraftSpider.parse"><code class="docutils literal notranslate"><span class="pre">KraftSpider.parse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.kraft.KraftSpider.scrape_item"><code class="docutils literal notranslate"><span class="pre">KraftSpider.scrape_item()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.kraft.KraftSpider.start_urls"><code class="docutils literal notranslate"><span class="pre">KraftSpider.start_urls</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="crawler.spiders.html#module-crawler.spiders.krud">crawler.spiders.krud module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.krud.KrudSpider"><code class="docutils literal notranslate"><span class="pre">KrudSpider</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.krud.KrudSpider.name"><code class="docutils literal notranslate"><span class="pre">KrudSpider.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.krud.KrudSpider.parse"><code class="docutils literal notranslate"><span class="pre">KrudSpider.parse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.krud.KrudSpider.scrape_item"><code class="docutils literal notranslate"><span class="pre">KrudSpider.scrape_item()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.krud.KrudSpider.start_urls"><code class="docutils literal notranslate"><span class="pre">KrudSpider.start_urls</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="crawler.spiders.html#module-crawler.spiders.mammamia">crawler.spiders.mammamia module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.mammamia.MammaMia"><code class="docutils literal notranslate"><span class="pre">MammaMia</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.mammamia.MammaMia.name"><code class="docutils literal notranslate"><span class="pre">MammaMia.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.mammamia.MammaMia.parse"><code class="docutils literal notranslate"><span class="pre">MammaMia.parse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.mammamia.MammaMia.start_requests"><code class="docutils literal notranslate"><span class="pre">MammaMia.start_requests()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.mammamia.MammaMia.start_urls"><code class="docutils literal notranslate"><span class="pre">MammaMia.start_urls</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="crawler.spiders.html#module-crawler.spiders.odeon">crawler.spiders.odeon module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.odeon.OdeonSpider"><code class="docutils literal notranslate"><span class="pre">OdeonSpider</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.odeon.OdeonSpider.name"><code class="docutils literal notranslate"><span class="pre">OdeonSpider.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.odeon.OdeonSpider.parse"><code class="docutils literal notranslate"><span class="pre">OdeonSpider.parse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.odeon.OdeonSpider.scrape_item"><code class="docutils literal notranslate"><span class="pre">OdeonSpider.scrape_item()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.odeon.OdeonSpider.start_urls"><code class="docutils literal notranslate"><span class="pre">OdeonSpider.start_urls</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="crawler.spiders.html#module-crawler.spiders.pizzasmile">crawler.spiders.pizzasmile module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.pizzasmile.PizzaSmileSpider"><code class="docutils literal notranslate"><span class="pre">PizzaSmileSpider</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.pizzasmile.PizzaSmileSpider.name"><code class="docutils literal notranslate"><span class="pre">PizzaSmileSpider.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.pizzasmile.PizzaSmileSpider.parse"><code class="docutils literal notranslate"><span class="pre">PizzaSmileSpider.parse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.pizzasmile.PizzaSmileSpider.scrape_item"><code class="docutils literal notranslate"><span class="pre">PizzaSmileSpider.scrape_item()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.pizzasmile.PizzaSmileSpider.start_urls"><code class="docutils literal notranslate"><span class="pre">PizzaSmileSpider.start_urls</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="crawler.spiders.html#module-crawler.spiders.rigatoni">crawler.spiders.rigatoni module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.rigatoni.RigatoniSpider"><code class="docutils literal notranslate"><span class="pre">RigatoniSpider</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.rigatoni.RigatoniSpider.name"><code class="docutils literal notranslate"><span class="pre">RigatoniSpider.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.rigatoni.RigatoniSpider.parse"><code class="docutils literal notranslate"><span class="pre">RigatoniSpider.parse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.rigatoni.RigatoniSpider.scrape_item"><code class="docutils literal notranslate"><span class="pre">RigatoniSpider.scrape_item()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.rigatoni.RigatoniSpider.scrape_page"><code class="docutils literal notranslate"><span class="pre">RigatoniSpider.scrape_page()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.rigatoni.RigatoniSpider.start_urls"><code class="docutils literal notranslate"><span class="pre">RigatoniSpider.start_urls</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="crawler.spiders.html#module-crawler.spiders.sushimaster">crawler.spiders.sushimaster module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.sushimaster.SushiMasterSpider"><code class="docutils literal notranslate"><span class="pre">SushiMasterSpider</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.sushimaster.SushiMasterSpider.name"><code class="docutils literal notranslate"><span class="pre">SushiMasterSpider.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.sushimaster.SushiMasterSpider.parse"><code class="docutils literal notranslate"><span class="pre">SushiMasterSpider.parse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.sushimaster.SushiMasterSpider.scrape_page"><code class="docutils literal notranslate"><span class="pre">SushiMasterSpider.scrape_page()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.sushimaster.SushiMasterSpider.start_urls"><code class="docutils literal notranslate"><span class="pre">SushiMasterSpider.start_urls</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="crawler.spiders.html#module-crawler.spiders.tazz">crawler.spiders.tazz module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.tazz.Tazz"><code class="docutils literal notranslate"><span class="pre">Tazz</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.tazz.Tazz.name"><code class="docutils literal notranslate"><span class="pre">Tazz.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.tazz.Tazz.parse"><code class="docutils literal notranslate"><span class="pre">Tazz.parse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.tazz.Tazz.process_images"><code class="docutils literal notranslate"><span class="pre">Tazz.process_images()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.tazz.Tazz.process_prices"><code class="docutils literal notranslate"><span class="pre">Tazz.process_prices()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.tazz.Tazz.scrape_restaurant"><code class="docutils literal notranslate"><span class="pre">Tazz.scrape_restaurant()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.tazz.Tazz.start_urls"><code class="docutils literal notranslate"><span class="pre">Tazz.start_urls</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="crawler.spiders.html#module-crawler.spiders.veranda">crawler.spiders.veranda module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.veranda.VerandaSpider"><code class="docutils literal notranslate"><span class="pre">VerandaSpider</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.veranda.VerandaSpider.name"><code class="docutils literal notranslate"><span class="pre">VerandaSpider.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.veranda.VerandaSpider.parse"><code class="docutils literal notranslate"><span class="pre">VerandaSpider.parse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.veranda.VerandaSpider.parse_category"><code class="docutils literal notranslate"><span class="pre">VerandaSpider.parse_category()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.veranda.VerandaSpider.parse_product"><code class="docutils literal notranslate"><span class="pre">VerandaSpider.parse_product()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.veranda.VerandaSpider.start_urls"><code class="docutils literal notranslate"><span class="pre">VerandaSpider.start_urls</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="crawler.spiders.html#module-crawler.spiders.vivo">crawler.spiders.vivo module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.vivo.Vivo"><code class="docutils literal notranslate"><span class="pre">Vivo</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.vivo.Vivo.name"><code class="docutils literal notranslate"><span class="pre">Vivo.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.vivo.Vivo.parse"><code class="docutils literal notranslate"><span class="pre">Vivo.parse()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.vivo.Vivo.scrape_item"><code class="docutils literal notranslate"><span class="pre">Vivo.scrape_item()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="crawler.spiders.html#crawler.spiders.vivo.Vivo.start_urls"><code class="docutils literal notranslate"><span class="pre">Vivo.start_urls</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="crawler.spiders.html#module-crawler.spiders">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-crawler.items">
+<span id="crawler-items-module"></span><h2>crawler.items module<a class="headerlink" href="#module-crawler.items" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="crawler.items.Product">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">crawler.items.</span></span><span class="sig-name descname"><span class="pre">Product</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/items.html#Product"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.items.Product" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Item</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="crawler.items.Product.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Field</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'category':</span> <span class="pre">{'input_processor':</span> <span class="pre">&lt;itemloaders.processors.MapCompose</span> <span class="pre">object&gt;,</span> <span class="pre">'output_processor':</span> <span class="pre">&lt;itemloaders.processors.TakeFirst</span> <span class="pre">object&gt;},</span> <span class="pre">'description':</span> <span class="pre">{'input_processor':</span> <span class="pre">&lt;itemloaders.processors.MapCompose</span> <span class="pre">object&gt;,</span> <span class="pre">'output_processor':</span> <span class="pre">&lt;itemloaders.processors.TakeFirst</span> <span class="pre">object&gt;},</span> <span class="pre">'images':</span> <span class="pre">{},</span> <span class="pre">'name':</span> <span class="pre">{'input_processor':</span> <span class="pre">&lt;itemloaders.processors.MapCompose</span> <span class="pre">object&gt;,</span> <span class="pre">'output_processor':</span> <span class="pre">&lt;itemloaders.processors.TakeFirst</span> <span class="pre">object&gt;},</span> <span class="pre">'price':</span> <span class="pre">{'input_processor':</span> <span class="pre">&lt;itemloaders.processors.MapCompose</span> <span class="pre">object&gt;,</span> <span class="pre">'output_processor':</span> <span class="pre">&lt;itemloaders.processors.TakeFirst</span> <span class="pre">object&gt;},</span> <span class="pre">'restaurant_name':</span> <span class="pre">{'input_processor':</span> <span class="pre">&lt;itemloaders.processors.MapCompose</span> <span class="pre">object&gt;,</span> <span class="pre">'output_processor':</span> <span class="pre">&lt;itemloaders.processors.TakeFirst</span> <span class="pre">object&gt;},</span> <span class="pre">'source':</span> <span class="pre">{'input_processor':</span> <span class="pre">&lt;itemloaders.processors.MapCompose</span> <span class="pre">object&gt;,</span> <span class="pre">'output_processor':</span> <span class="pre">&lt;itemloaders.processors.TakeFirst</span> <span class="pre">object&gt;}}</span></em><a class="headerlink" href="#crawler.items.Product.fields" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="crawler.items.convert_to_float">
+<span class="sig-prename descclassname"><span class="pre">crawler.items.</span></span><span class="sig-name descname"><span class="pre">convert_to_float</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/items.html#convert_to_float"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.items.convert_to_float" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-crawler.middlewares">
+<span id="crawler-middlewares-module"></span><h2>crawler.middlewares module<a class="headerlink" href="#module-crawler.middlewares" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="crawler.middlewares.SeleniumMiddleware">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">crawler.middlewares.</span></span><span class="sig-name descname"><span class="pre">SeleniumMiddleware</span></span><a class="reference internal" href="_modules/crawler/middlewares.html#SeleniumMiddleware"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.middlewares.SeleniumMiddleware" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.middlewares.SeleniumMiddleware.create_driver">
+<span class="sig-name descname"><span class="pre">create_driver</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spider</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/middlewares.html#SeleniumMiddleware.create_driver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.middlewares.SeleniumMiddleware.create_driver" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.middlewares.SeleniumMiddleware.from_crawler">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_crawler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">crawler</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/middlewares.html#SeleniumMiddleware.from_crawler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.middlewares.SeleniumMiddleware.from_crawler" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.middlewares.SeleniumMiddleware.process_request">
+<span class="sig-name descname"><span class="pre">process_request</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spider</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/middlewares.html#SeleniumMiddleware.process_request"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.middlewares.SeleniumMiddleware.process_request" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="crawler.middlewares.SeleniumMiddleware.spider_closed">
+<span class="sig-name descname"><span class="pre">spider_closed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spider</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/middlewares.html#SeleniumMiddleware.spider_closed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.middlewares.SeleniumMiddleware.spider_closed" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="crawler-pipelines-module">
+<h2>crawler.pipelines module<a class="headerlink" href="#crawler-pipelines-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-crawler.settings">
+<span id="crawler-settings-module"></span><h2>crawler.settings module<a class="headerlink" href="#module-crawler.settings" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-crawler.utils">
+<span id="crawler-utils-module"></span><h2>crawler.utils module<a class="headerlink" href="#module-crawler.utils" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="crawler.utils.SeleniumRequest">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">crawler.utils.</span></span><span class="sig-name descname"><span class="pre">SeleniumRequest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/utils.html#SeleniumRequest"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.utils.SeleniumRequest" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Request</span></code></p>
+<p>Scrapy <code class="docutils literal notranslate"><span class="pre">Request</span></code> subclass providing additional arguments</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="crawler.utils.create_db_connection">
+<span class="sig-prename descclassname"><span class="pre">crawler.utils.</span></span><span class="sig-name descname"><span class="pre">create_db_connection</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/utils.html#create_db_connection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.utils.create_db_connection" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="crawler.utils.create_selenium_driver">
+<span class="sig-prename descclassname"><span class="pre">crawler.utils.</span></span><span class="sig-name descname"><span class="pre">create_selenium_driver</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/utils.html#create_selenium_driver"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.utils.create_selenium_driver" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="crawler.utils.get_rid_of_special_spaces">
+<span class="sig-prename descclassname"><span class="pre">crawler.utils.</span></span><span class="sig-name descname"><span class="pre">get_rid_of_special_spaces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/utils.html#get_rid_of_special_spaces"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.utils.get_rid_of_special_spaces" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="crawler.utils.get_rid_of_special_spaces_without_strip">
+<span class="sig-prename descclassname"><span class="pre">crawler.utils.</span></span><span class="sig-name descname"><span class="pre">get_rid_of_special_spaces_without_strip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/utils.html#get_rid_of_special_spaces_without_strip"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.utils.get_rid_of_special_spaces_without_strip" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="crawler.utils.parse_config">
+<span class="sig-prename descclassname"><span class="pre">crawler.utils.</span></span><span class="sig-name descname"><span class="pre">parse_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'crawler/configs/database.ini'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">section</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'postgresql'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/crawler/utils.html#parse_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#crawler.utils.parse_config" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-crawler">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-crawler" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="src" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="crawler.spiders.html" class="btn btn-neutral float-right" title="crawler.spiders package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Crawler-Team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

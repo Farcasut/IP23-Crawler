@@ -1,0 +1,173 @@
+crawler.spiders package
+=======================
+
+Submodules
+----------
+
+crawler.spiders.alila module
+----------------------------
+
+.. automodule:: crawler.spiders.alila
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+crawler.spiders.bavaria module
+------------------------------
+
+.. automodule:: crawler.spiders.bavaria
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+crawler.spiders.berariaveche module
+-----------------------------------
+
+.. automodule:: crawler.spiders.berariaveche
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+crawler.spiders.buenavista module
+---------------------------------
+
+.. automodule:: crawler.spiders.buenavista
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+crawler.spiders.carulcuburgeri module
+-------------------------------------
+
+.. automodule:: crawler.spiders.carulcuburgeri
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+crawler.spiders.cheffa module
+-----------------------------
+
+.. automodule:: crawler.spiders.cheffa
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+crawler.spiders.class module
+----------------------------
+
+.. automodule:: crawler.spiders.class
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+crawler.spiders.cuptorulmoldovencei module
+------------------------------------------
+
+.. automodule:: crawler.spiders.cuptorulmoldovencei
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+crawler.spiders.fireribs module
+-------------------------------
+
+.. automodule:: crawler.spiders.fireribs
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+crawler.spiders.glovo module
+----------------------------
+
+.. automodule:: crawler.spiders.glovo
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+crawler.spiders.kraft module
+----------------------------
+
+.. automodule:: crawler.spiders.kraft
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+crawler.spiders.krud module
+---------------------------
+
+.. automodule:: crawler.spiders.krud
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+crawler.spiders.mammamia module
+-------------------------------
+
+.. automodule:: crawler.spiders.mammamia
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+crawler.spiders.odeon module
+----------------------------
+
+.. automodule:: crawler.spiders.odeon
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+crawler.spiders.pizzasmile module
+---------------------------------
+
+.. automodule:: crawler.spiders.pizzasmile
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+crawler.spiders.rigatoni module
+-------------------------------
+
+.. automodule:: crawler.spiders.rigatoni
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+crawler.spiders.sushimaster module
+----------------------------------
+
+.. automodule:: crawler.spiders.sushimaster
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+crawler.spiders.tazz module
+---------------------------
+
+.. automodule:: crawler.spiders.tazz
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+crawler.spiders.veranda module
+------------------------------
+
+.. automodule:: crawler.spiders.veranda
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+crawler.spiders.vivo module
+---------------------------
+
+.. automodule:: crawler.spiders.vivo
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: crawler.spiders
+   :members:
+   :undoc-members:
+   :show-inheritance:
